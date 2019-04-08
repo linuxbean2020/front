@@ -1,0 +1,21 @@
+	<div class="row page-block h-100" *ngIf="data">
+		<div class="col-md-4 left">
+			<div class="grad-blue-box">				
+				<div class="col grad-blue left">
+					<h1>{{data.heading}}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 mid">
+			<div class="col middle white">
+				<p [innerHTML]="data.body"></p>
+			</div>
+		</div>
+		<div class="col-md-4 right">
+			<div class="grad-blue-box">	
+			<div class="col grad-blue right">
+				<button class='btn btn-warning' [innerHTML]="data.buttonText"></button>
+			</div>
+		</div>
+		</div>		
+	</div>

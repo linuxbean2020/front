@@ -1,0 +1,18 @@
+<div class="container" style='overflow: hidden;'>
+	<seafish-secondary-nav slug="tess-home"></seafish-secondary-nav>
+	<seafish-intro5050></seafish-intro5050>
+	<div class="row page-block">
+		<div class='col-md-12' style='padding-left: 0;'>
+			<seafish-tess-search (goSearch)="goSearch($event)"></seafish-tess-search>
+		</div>
+	</div>
+	<div class="row page-block">
+		<div class="col-md-6">
+			<seafish-link-list side="left"></seafish-link-list>
+		</div>
+		<div class="col-md-6 grey-right">
+			<seafish-link-dropdown background="grey"></seafish-link-dropdown>
+		</div>		
+	</div>
+</div>
+<seafish-publications-footer></seafish-publications-footer>

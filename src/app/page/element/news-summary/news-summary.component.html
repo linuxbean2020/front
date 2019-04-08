@@ -1,0 +1,35 @@
+<div class="row page-block">
+	<div class="col-sm-3" style='padding-right: 0;'>
+		<div class='panel1 grad-blue' *ngIf="categories && firstCol==1">
+			<h1>Related News</h1>
+			<a class='big text-white'>News</a>
+			<a class='big text-white'>Blog</a>
+			<a class='big text-white'>Events</a>
+		</div>
+	</div>
+
+	<div class="col-sm-5" *ngIf='news.length>0' style='padding-left: 0; padding-right: 0;'>
+		<div class='panel1 grad-blue'>
+			<div class='main-image' [ngStyle]="{'background-image': 'url(' + apiBase + '/file/' + news[0].featured_img + ')'}"></div>
+			<h1><a [href]="'/article/' + news[0].slug">{{news[0].title}}</a></h1>
+			<div id='meta'><span id='date'>{{news[0].created_at.date | date:'MMMM d y'}}</span></div>
+		</div>
+	</div>
+
+	<div class="col-sm-2" *ngIf='news.length>0' style='padding-left: 0; padding-right: 0;'>
+		<div class='panel2 secondary-green'>
+			<div class='secondary-image' [ngStyle]="{'background-image': 'url(' + apiBase + '/file/' + news[1].featured_img + ')'}"></div>
+			<p class="tidy"><a [href]="'/article/' + news[1].slug">{{news[1].title}}</a></p>
+		</div>
+
+		<div class='panel3 secondary-orange'>
+			<div class='secondary-image' [ngStyle]="{'background-image': 'url(' + apiBase + '/file/' + news[2].featured_img + ')'}"></div>
+			<p class="tidy"><a [href]="'/article/' + news[2].slug">{{news[2].title}}</a></p>
+			<!--<div class='secondary-image' id="poly5" style='background-image: url("http://localhost:8080/file/7")'></div>-->
+		</div>		
+	</div>
+
+	<div class='col-sm-2 grad-blue'>
+		<h1>More News</h1>
+	</div>	
+</div>

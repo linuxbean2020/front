@@ -1,0 +1,22 @@
+<div class='row margin-top-10'>
+	<div class='col-sm-12'>
+		<ul *ngIf="nav && nav.length">
+			<img src="assets/img/right-arrow.svg" />
+			<li *ngFor="let item of nav">
+				<a *ngIf="item.child_article" [routerLink]="['/article/' + item.child_article.slug]">{{item.child_article.title}}</a>
+				<a *ngIf="item.child_page" [routerLink]="['/'+item.child_page.route]">{{item.child_page.title}}</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-sm-12'>
+		<ul *ngIf="pre_nav && pre_nav.length">
+			<img src="assets/img/left-arrow.svg" />
+			<li *ngFor="let item of pre_nav">
+				<a *ngIf="item.parent_page" [routerLink]="['/' + item.parent_page.slug]">{{item.parent_page.title}}</a>
+				<a *ngIf="item.parent_article" [routerLink]="['/article/' + item.parent_article.slug]">{{item.parent_article.title}}</a>
+			</li>
+		</ul>
+	</div>
+</div>

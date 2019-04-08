@@ -1,0 +1,117 @@
+<div class="container">
+	<div class='row'>
+	<div class='col-sm-12'>
+		<ul>
+			<img src="assets/img/left-arrow.svg" />
+			<li>
+			<a href="/gear/">Gear Database Home</a>	
+			</li>
+			<li>
+			<a href="/article/gear-faqs">Gear FAQs</a>	
+			</li>
+			<li>
+			<a href="/article/fishing-gear">Fishing Gear</a>	
+			</li>
+			<li>
+			<a href="/article/gear-classification">Gear Classification</a>	
+			</li>
+			<li>
+			<a href="/article/gear-glossary">Gear Glossary</a>	
+			</li>
+		</ul>
+	</div>
+</div>
+	<seafish-gear-search (triggerSearch)="doSearch($event)"></seafish-gear-search>
+
+	<div class="row page-block">
+		<div class="col-sm-12">
+			<h1>Search Results</h1>
+
+			<div style='padding: 6px; padding-left: 20px;'>
+				<i *ngIf="!results.gear.length && !results.devices.length && !results.docs.length">No Search Results</i>
+			</div>
+
+			<!-- Gear Results -->
+			<div *ngIf="results.gear && results.gear.length">
+				<h2>- Gear</h2>
+				<div *ngIf="results">
+					<div class="card" *ngFor="let row of results.gear">
+						<div class="card-header">
+							<strong>{{row.title}}</strong>
+						</div>						
+						<div class="row results-list">
+							<div class="col-md-3">
+								<div class="img-clip">
+								<img *ngIf="row.featured_img" [src]="apiBase + 'file/'+row.featured_img" class='full-width featured-img' />
+							</div>
+							</div>
+							<div class="col-md-6">
+								<div class="card-body" [innerHTML]="row.description">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<a [routerLink]="['/gear/gear/profile/'+row.slug]" class='btn btn-warning'>View</a>
+							</div>
+						</div>							
+					</div>
+				</div>
+			</div>
+
+			<!-- Devices Results -->
+			<div *ngIf="results.devices && results.devices.length">
+				<h2>- Devices</h2>
+				<div *ngIf="results">
+					<div class="card" *ngFor="let row of results.devices">
+						<div class="card-header">
+							<strong>{{row.name}}</strong>
+						</div>						
+						<div class="row results-list">
+							<div class="col-md-3">
+								<div class="img-clip">
+								<img *ngIf="row.featured_img" [src]="apiBase + 'file/'+row.featured_img" class='full-width featured-img' />
+							</div>
+						</div>
+							<div class="col-md-6">
+								<div class="card-body" [innerHTML]="row.description">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<a [routerLink]="['/gear/devices/profile/'+row.slug]" class='btn btn-warning'>View</a>
+							</div>
+						</div>							
+					</div>
+				</div>
+			</div>	
+
+			<!-- Docs Results -->
+			<div *ngIf="results.docs && results.docs.length">
+				<h2>Technical Information</h2>
+				<div *ngIf="results">
+					<div class="card" *ngFor="let row of results.docs">
+						<div class="card-header">
+							<strong>{{row.title}}</strong>
+						</div>						
+						<div class="row results-list">
+							<div class="col-md-3">
+								<div class="img-clip">
+								<img *ngIf="row.featured_img" [src]="apiBase + 'file/'+row.featured_img" class='full-width featured-img' />
+							</div>
+						</div>
+							<div class="col-md-6">
+								<div class="card-body" [innerHTML]="row.description.substr(0,300) + '...'">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<a [routerLink]="['/gear/tech/profile/'+row.slug]" class='btn btn-warning'>View</a>
+							</div>
+						</div>							
+					</div>
+				</div>
+			</div>						
+
+		</div>
+	</div>
+
+</div>
+<br />
+<seafish-publications-footer></seafish-publications-footer>

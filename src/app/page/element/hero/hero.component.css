@@ -1,0 +1,29 @@
+div {
+	background-position: center; 
+	background-size: cover;
+}
+
+.videoWrapper { 
+     position: relative;
+     padding-bottom: 25%; /* 16:9 Aspect Ratio */ 
+     height: 0;
+     ​width: 100%; /* You can set this width to whatever suits your needs */     
+     margin: 0 auto;
+
+}
+
+.videoWrapper video {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;  
+     height: 100%;
+     max-height: 360px;
+     margin-top: 24px;
+}
+
+.row {
+     margin-left:-15px;
+     margin-right:-15px;
+     margin-bottom: 20px;
+}

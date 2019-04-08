@@ -1,0 +1,29 @@
+
+@media(min-width:768px){
+	.grad-blue-box{
+		transform: skewX(-10deg) translateX(-28px);
+		-webkit-transform: skewX(-10deg) translateX(-28px);
+		overflow: hidden;
+		height: 100%;
+		
+	}
+	
+	.grad-blue-box >* {
+		transform: skewX(10deg) translate(14px);
+		-webkit-transform: skewX(10deg) translateX(14px);
+		overflow: hidden;
+		height: 100%;
+	}
+}
+
+.grad-blue h1 {
+	text-align: left;
+}
+
+p {
+	text-align: left;
+}
+
+.col {
+	padding:30px;
+}

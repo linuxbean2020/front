@@ -1,0 +1,41 @@
+<div *ngIf="data" class='main-division' style="z-index: 999; height: 100%;">
+	<div class="row m-a h-100">
+		<div class="rotate-10">
+
+		<div class="col-sm-12 rotate-back h-100" [class.grey]="background=='grey'">
+			<div class="col text-right">
+
+				<h1>{{data.header}}</h1>
+				<p class='link-lead'>{{data.lead}}</p>
+				<p class='body white-font' [innerHTML]="data.body"></p>
+
+				<div class="dropdown pull-right">
+					<button *ngIf="data.title && data.items && data.items.length" class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						{{data.title}}
+					</button>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="data.items && data.items.length">
+						<div *ngFor="let data of data.items">
+							<a *ngIf="data && data.linkType == 1" [routerLink]="['/articlebyid/' + data.linkID]"  class="dropdown-item">{{data.displayText}}<i *ngIf="!hideArrow" style='margin-top: 7px;' class="icon-arrow  pull-right"></i></a>
+
+							<a *ngIf="data && data.linkType == 2" [href]="apiBase + 'file/' + data.linkID" target="_blank" class="dropdown-item">{{data.displayText}}<i *ngIf="!hideArrow" style='margin-top: 7px;' class="icon-arrow  pull-right"></i></a>
+
+							<a *ngIf="data && data.linkType == 3" [href]="data.linkID" target="_blank" class="dropdown-item">{{data.displayText}}<i *ngIf="!hideArrow" style='margin-top: 7px;' class="icon-arrow pull-right"></i></a>
+
+							<a *ngIf="data && data.linkType == 4" [routerLink]="['/'+data.linkID]" class="dropdown-item">{{data.displayText}}<i *ngIf="!hideArrow" style='margin-top: 7px;' class="icon-arrow pull-right"></i></a>
+						</div>
+					</div>
+
+				</div>
+
+				<br /><br />
+				
+				<div class="pull-right w-100" *ngIf="data.linkButton.displayText" >
+					<element-button *ngIf="data.linkButton" [data]="data.linkButton" #linkButton buttonClass="warning"></element-button>
+			   	</div>
+				
+			</div>
+		</div>
+	</div>
+	</div>
+</div>

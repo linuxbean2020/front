@@ -1,0 +1,38 @@
+.left-side-border{
+    border-left: 10px solid #0092d5;
+    padding-left: 25px;
+    margin-bottom: 30px;
+}
+p{
+    font-family:'roboto-slab';
+}
+.pl-25{
+    padding-left:15px;
+}
+
+.outline-button h1 {
+     text-align: left;
+     font-weight: 400;
+}
+.outline-button p {
+    text-align: left;
+    font-family: roboto-slab;
+}
+
+.outline-button h1:before{
+    content: '+';
+    font-size: 25px;
+    float: right;
+    right: 25px;
+    font-weight: 400;
+}
+
+.page-block {
+    padding-left:30px;
+    padding-right:50px
+}
+
+.toggle {
+    font-family: 'roboto' !important;
+    letter-spacing:0;
+}

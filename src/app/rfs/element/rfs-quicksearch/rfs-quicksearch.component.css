@@ -1,0 +1,49 @@
+a {
+	color: white;
+}
+
+.rfs-search {
+	padding-right:30px;
+}
+
+.aleft {
+	text-align: left !important;
+	margin-left:-55px;
+	padding-right: 100px !important;
+	padding-left: 30px !important;
+    padding-top: 30px !important;
+}
+
+.grad-blue {
+
+}
+
+@media(min-width:768px){
+	.grad-blue-box{
+		transform: skewX(-10deg) translateX(-43px);
+		-webkit-transform: skewX(-10deg) translateX(-43px);
+		overflow: hidden;
+		height: 100%;
+		border-right:10px solid #658d1b;
+		
+	}
+	
+	.grad-blue-box >* {
+		transform: skewX(10deg) translateX(83px);
+		-webkit-transform: skewX(10deg) translateX(83px);
+		overflow: hidden;
+		height: 100%;
+	}
+}
+.search-info {
+	padding-left:15px;
+}
+
+.rfs-btn {
+	padding:1rem 1rem 1rem 1rem;
+	text-align: left;
+}
+
+p {
+	color:#fff;
+}

@@ -1,0 +1,129 @@
+.col1 {
+	
+	padding: 40px 40px 40px 50px ;
+	text-align: left;
+}
+.col1 p{
+	padding: 0px 0px 0px 0px;
+} 
+.col1 h1{ 
+	padding: 0px 40px 0px 0px;
+} 
+
+
+
+.col1-2 {
+    text-align: center;
+	font-family: roboto-slab;
+	justify-content: center;
+	align-self: center;
+	height: 100%;
+	width: 100%;
+}
+.col1-2-img img{
+	max-width: 70%;
+	max-height: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.col1-2-img .img1{
+	margin-top: 0px;
+}
+.col1-2-img .img2{
+	margin-top: 0px;
+}
+.col1-2-img .img3{
+	margin-top: 15px;
+}
+
+.images{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row.col1-2 >*{
+	align-self: center!important;
+}
+
+/* @media only screen and (max-width:1188px){
+	
+	.col1 p{
+		padding: 0px 0px 0px 16px;
+	}
+	.col1-2-img .img1{
+		margin-top: 25px;
+	}
+	.col1-2-img .img2{
+		margin-top: 25px;
+	}
+	.col1-2-img .img3{
+		margin-top: 35px;
+	}
+
+
+} */
+/* @media only screen and (max-width:928px){
+	
+	.col1 h1{
+		padding: 0px 0px 0px 0px;;
+	}
+	.col1 p{
+		padding: 0px 0px 0px 16px;
+	}
+	.col1-2-img .img1{
+		margin-top: 60px;
+	}
+	.col1-2-img .img2{
+		margin-top: 60px;
+	}
+	.col1-2-img .img3{
+		margin-top: 75px;
+	}
+
+} */
+
+/* @media only screen and (max-width:767px){
+	.left_inner_wel_img {
+		transform: skew(0deg) translate(0px);
+		-webkit-transform: skew(0deg) translate(0px);
+	}
+	.left_inner_wel_img .image{
+		transform: skew(0deg) translate(0px);
+	   -webkit-transform: skew(0deg) translate(0px);
+   }
+	.col1 {
+	    padding: 20px 0px ;
+		
+	}
+	.col1 p{
+		padding: 0px 10px 0px 40px;
+	}
+	.col1 h1{
+		padding: 0px 10px 0px 40px;
+	}
+
+} */
+
+@media(max-width:767px){
+	.col1 {
+		border-right: 10px solid #f49537;		
+	}
+}
+
+@media( min-width:768px ){
+	.left_inner_wel_img {
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		transform: skew(-10deg) translate(-60px);
+		-webkit-transform: skew(-10deg) translate(-60px);
+		position: relative;
+		overflow: hidden;
+		border-right: 10px solid #f49537;
+	}
+	.left_inner_wel_img >* {
+		transform: skew(10deg) translate(41px);
+		-webkit-transform: skew(10deg) translate(41px);
+	}
+}

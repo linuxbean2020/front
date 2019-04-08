@@ -1,0 +1,269 @@
+<div class="container" *ngIf="profile">
+
+		<div class='row' style="margin-bottom: 15px;">
+		<div class='col-sm-12'>
+			<ul class="menu">
+				<img class="nav-arrow" src="assets/img/right-arrow.svg" />
+				<li>
+				<a href="/rass/">RASS Home</a>	
+				</li>
+				<li>
+				<a href="/rass/full-search">RASS Full Search</a>	
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="grad-blue-box">
+				<div class="grad-blue vessel">
+					<h1>RASS Records</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9" style="padding-right: 50px;">
+			<h1>{{profile.name}}</h1>
+			<br />
+			<div class='row'>
+				<div class='col-md-12'>
+					<div class='row'>
+						<div class='col-md-6'>
+							<img src="/assets/img/default-fish.png" />
+						</div>
+						<div class='col-md-6'>
+							<div>
+								<strong>Content Last Updated</strong><br />
+								<span class="item">{{profile.updated_at | date}}</span>
+							</div>
+							<div class="clear"></div>
+							<div>
+								<strong>Stock</strong><br />
+								<span class="item">{{profile.profile_stock}}</span>
+							</div>
+							<div class="clear"></div>
+							<div>
+								<strong>Management</strong><br />
+								<span class="item">{{profile.profile_management}}</span>
+							</div>
+							<div class="clear"></div>
+						</div>						
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Map -->
+					<div style="height: 250px; border: 1px solid #ddd; margin-top:10px;"
+					     leaflet 
+					     [leafletOptions]="map.options"
+					     [leafletLayers]="map.layers"
+					     *ngIf="map"
+					>
+					</div>					
+				</div>							
+			</div>			
+
+
+			<div class="row">
+
+				<div class="col-md-12">
+					<br /><br />
+					<div class="accordion" id="cmsAccordion">
+
+						<div class="card">
+							<div class="card-header comp-header pointer no-risk" id="headingOverview"  data-toggle="collapse" data-target="#collapseOverview" aria-expanded="false" aria-controls="collapseOverview">
+								<strong>Overview</strong>
+							</div>
+							<div id="collapseOverview" class="collapse" aria-labelledby="headingOverview" data-parent="#cmsAccordion">
+								<div class="card-body" [innerHTML]="profile.summary_description"></div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header comp-header pointer collapsed" id="headingStock"  data-toggle="collapse" data-target="#collapseStock" aria-expanded="false" aria-controls="collapseStock">
+								<div class='row'>
+									<div class='col-md-6'>
+										<strong>Stock Status</strong>
+									</div>
+									<div class='col-md-6 risk'>
+										<seafish-risk-meter [score]="profile.stock_status_score"></seafish-risk-meter>
+									</div>
+								</div>
+							</div>
+							<div id="collapseStock" class="collapse" aria-labelledby="headingStock" data-parent="#cmsAccordion">
+								<div class="card-body">
+									<div [innerHTML]="profile.stock_status_summary"></div>
+									<br />
+									<button class="btn btn-primary" (click)="toggleDetail(0)" *ngIf="!show_detail[0]">Show more detail</button>
+									<button class="btn btn-primary" (click)="toggleDetail(0)" *ngIf="show_detail[0]">Show less detail</button>
+									<br /><br />
+									<div [innerHTML]="profile.stock_status_details" *ngIf="show_detail[0]"></div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header comp-header pointer collapsed" id="headingManage"  data-toggle="collapse" data-target="#collapseManage" aria-expanded="false" aria-controls="collapseManage">
+								<div class='row'>
+									<div class='col-md-6'>
+										<strong>Management</strong>
+									</div>
+									<div class='col-md-6 risk'>
+										<seafish-risk-meter [score]="profile.management_score"></seafish-risk-meter>
+									</div>
+								</div>
+							</div>
+							<div id="collapseManage" class="collapse" aria-labelledby="headingManage" data-parent="#cmsAccordion">
+								<div class="card-body">
+									<div [innerHTML]="profile.management_summary"></div>
+									<br />
+									<button class="btn btn-primary" (click)="toggleDetail(1)" *ngIf="!show_detail[1]">Show more detail</button>
+									<button class="btn btn-primary" (click)="toggleDetail(1)" *ngIf="show_detail[1]">Show less detail</button>
+									<br /><br />
+									<div [innerHTML]="profile.management_details" *ngIf="show_detail[1]"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header comp-header pointer collapsed" id="headingBycatch"  data-toggle="collapse" data-target="#collapseBycatch" aria-expanded="false" aria-controls="collapseBycatch">
+								<div class='row'>
+									<div class='col-md-6'>
+										<strong>Bycatch</strong>
+									</div>
+									<div class='col-md-6 risk'>
+										<seafish-risk-meter [score]="profile.bycatch_score"></seafish-risk-meter>
+									</div>
+								</div>
+							</div>
+							<div id="collapseBycatch" class="collapse" aria-labelledby="headingBycatch" data-parent="#cmsAccordion">
+								<div class="card-body">
+									<div [innerHTML]="profile.bycatch_summary"></div>
+									<br />
+									<button class="btn btn-primary" (click)="toggleDetail(2)" *ngIf="!show_detail[2]">Show more detail</button>
+									<button class="btn btn-primary" (click)="toggleDetail(2)" *ngIf="show_detail[2]">Show less detail</button>
+									<br /><br />
+									<div [innerHTML]="profile.bycatch_details" *ngIf="show_detail[2]"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header comp-header pointer collapsed" id="headingHabitat"  data-toggle="collapse" data-target="#collapseHabitat" aria-expanded="false" aria-controls="collapseHabitat">
+								<div class='row'>
+									<div class='col-md-6'>
+										<strong>Habitat</strong>
+									</div>
+									<div class='col-md-6 risk'>
+										<seafish-risk-meter [score]="profile.habitat_score"></seafish-risk-meter>
+									</div>
+								</div>								
+							</div>
+							<div id="collapseHabitat" class="collapse" aria-labelledby="headingHabitat" data-parent="#cmsAccordion">
+								<div class="card-body">
+									<div [innerHTML]="profile.habitat_summary"></div>
+									<br />
+									<button class="btn btn-primary" (click)="toggleDetail(3)" *ngIf="!show_detail[3]">Show more detail</button>
+									<button class="btn btn-primary" (click)="toggleDetail(3)" *ngIf="show_detail[3]">Show less detail</button>
+									<br /><br />
+									<div [innerHTML]="profile.habitat_details" *ngIf="show_detail[3]"></div>
+								</div>
+							</div>
+						</div>	
+						
+						<div class="card">
+							<div class="card-header comp-header no-risk pointer collapsed" id="headingOutlook"  data-toggle="collapse" data-target="#collapseOutlook" aria-expanded="false" aria-controls="collapseOutlook">
+								<strong>Outlook</strong>
+							</div>
+							<div id="collapseOutlook" class="collapse" aria-labelledby="headingOutlook" data-parent="#cmsAccordion">
+								<div class="card-body" [innerHTML]="profile.outlook"></div>
+							</div>
+						</div>	
+
+						<div class="card">
+							<div class="card-header comp-header no-risk pointer collapsed" id="headingNutritional"  data-toggle="collapse" data-target="#collapseNutritional" aria-expanded="false" aria-controls="collapseNutritional">
+								<strong>Nutritional Information</strong>
+							</div>
+							<div id="collapseNutritional" class="collapse show" aria-labelledby="headingNutritional" data-parent="#cmsAccordion">
+								<div class="card-body">
+									
+									<div class="row">
+										<div class="col-md-6">
+											<p>Nutrition information from 100g raw product</p>
+											<strong>Rich in:<br />
+											</strong><span class="item" *ngFor="let ri of profile.fish.rich_in">{{ri.name}}</span><br />
+											<strong>Good Source Of:<br />
+											</strong><span class="item" *ngFor="let so of profile.fish.source_of">{{so.name}}&nbsp;</span>
+										</div>
+										<div class="col-md-6">
+											<div *ngFor="let rb of profile.fish.rag_bars" class='rag-bar'>
+												<div class='score'>{{rb.score}}</div>
+												<div class='name'>{{rb.title}}</div>
+												<div class='amount'>{{rb.value}}</div>
+												<div class='perc'>{{rb.ref_intake}}%</div>
+											</div>
+										</div>
+									</div>
+
+									<br />
+									<button class="btn btn-primary" (click)="toggleDetail(4)" *ngIf="!show_detail[4]">Show more detail</button>
+									<button class="btn btn-primary" (click)="toggleDetail(4)" *ngIf="show_detail[4]">Show less detail</button>
+									<br /><br />
+									<div *ngIf="show_detail[4]">
+										
+										Source: Department of Health (2013) Nutrient analysis of fish and fish products.<br /><br />
+
+										<h3>Macro Nutrients</h3>
+										<table class='table table-striped table-sm'>
+											<tr>
+												<th>Type</th>
+												<th>Quantity</th>
+												<th>% Reference Intake</th>
+											</tr>
+											<tr *ngFor="let mac of profile.fish.macro_nutrients">
+												<td>{{mac.title}}</td>
+												<td>{{mac.value}}</td>
+												<td>{{mac.ref_intake}}%</td>
+											</tr>
+										</table><br />
+
+										<h3>Vitamins</h3>
+										<table class='table table-striped table-sm'>
+											<tr>
+												<th>Type</th>
+												<th>Quantity</th>
+												<th>% Reference Intake</th>
+											</tr>
+											<tr *ngFor="let vit of profile.fish.vitamins">
+												<td>{{vit.title}}</td>
+												<td>{{vit.value}}</td>
+												<td>{{vit.ref_intake}}%</td>
+											</tr>
+										</table><br />
+
+										<h3>Minerals</h3>
+										<div *ngFor="let ri of profile.fish.rich_in">
+											<strong>{{ri.name}}</strong><br />{{ri.description}}
+										</div>
+										<div *ngFor="let so of profile.fish.source_of">
+											<strong>{{so.name}}</strong><br />{{so.description}}
+										</div>										
+
+									</div>
+
+								</div>
+							</div>
+						</div>																																				
+
+					</div>
+
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+	<br />
+</div>

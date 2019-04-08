@@ -1,0 +1,40 @@
+<div class="row page-block">
+	<div class="col-sm-4">
+		<div class="grad-blue-box">
+			<div class="grad-blue aleft">
+			<h1>Quick Search</h1>
+			<p>Enter your profile search terms here, or select a species in the drop-down. The comprehensive list of RASS profiles can be found <a href="/media/RASS-profile-list-Sept-2016.pdf"><strong>here</strong>.</a></p>
+		</div>
+	</div>
+</div>
+
+	<div class="col-sm-8">
+
+		<div class="row">
+
+			<div class="col-sm-6 rfs-search">
+				<input type="text" name="keyword" [(ngModel)]="search.keyword" class='form-control' placeholder="Enter Your Search Term...">		
+			</div>					
+
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.species">
+						<option value="0">All Species</option>
+						<option [value]="specie.id" *ngFor="let specie of species">{{specie.name}}</option>
+					</select>
+				</div>
+			</div>	
+
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<a (click)="doSearch()" class='btn btn-primary btn-block rfs-btn'>Search Now</a>
+				</div>
+			</div>
+		</div>
+
+
+	</div>	
+</div>

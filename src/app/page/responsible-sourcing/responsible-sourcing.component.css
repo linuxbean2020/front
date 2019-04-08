@@ -1,0 +1,16 @@
+.left_inner_wel_img[_ngcontent-c18] {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    transform: skew(-10deg) translate(-60px);
+    -webkit-transform: skew(-10deg) translate(-60px);
+    position: relative;
+    overflow: hidden;
+    border-right: 10px solid #638C1C;
+}
+.page-block{
+    overflow: hidden;
+}
+seafish-content-toggles {
+    width: 100%;
+}

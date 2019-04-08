@@ -1,0 +1,14 @@
+<div class='row page-block' *ngIf="imgUrl" [ngStyle]="{'background-image': 'url(' + imgUrl + ')'}"></div>
+
+<div class="row" *ngIf="vidUrl">
+	<vg-player>
+	    <vg-controls>
+	        <vg-play-pause></vg-play-pause>
+	        <vg-fullscreen></vg-fullscreen>
+	    </vg-controls>
+
+	    <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin autoplay="true" muted="true">
+	        <source [src]="vidUrl" type="video/mp4">
+	    </video>
+	</vg-player>
+</div>

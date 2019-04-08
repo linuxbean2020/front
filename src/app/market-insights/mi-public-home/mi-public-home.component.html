@@ -1,0 +1,41 @@
+<div class="container">
+	<seafish-secondary-nav slug="mi-home"></seafish-secondary-nav>
+	<seafish-intro5050></seafish-intro5050>
+	<div class="row page-block row-eq-height" style="align-items: center">
+		<div class="col-md-4">	
+			<div class="col grad-blue left">
+				<h1>Log in to Market Data</h1>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="row" *ngIf="loginFail">
+				<div class="col-md-12">
+					<div class="alert alert-danger">
+						Unable to log you in, please check your email and password.
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="email" placeholder="Your Email" class='form-control' [(ngModel)]="credentials.email" />
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="password" placeholder="Your Password" class='form-control' [(ngModel)]="credentials.password" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12" style='text-align: right;'>
+			<button (click)="login()" class='btn btn-warning'>Login</button>
+		</div>
+	</div>
+
+</div>
+<seafish-temp-footer></seafish-temp-footer>

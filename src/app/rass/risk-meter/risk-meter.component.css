@@ -1,0 +1,17 @@
+td {
+	font-size: 0.8em;
+	padding: 0;
+	margin: 0;
+}
+
+td div {
+	font-size: 2em;
+}
+
+.col {
+	float: left;
+}
+
+table {
+	margin-right: 10px;
+}

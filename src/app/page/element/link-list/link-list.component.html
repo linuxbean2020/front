@@ -1,0 +1,19 @@
+<div *ngIf="data" [class]="side + ' ' + background + ' ' +  ' rotate-10'">
+	<div class="row">
+		<div class="col-sm-12 aleft">
+			<div class="col text-left">
+				<h1>{{data.header}}</h1>
+				<p class='link-lead'>{{data.lead}}</p>
+
+				<p class='body white-font' [innerHTML]="data.body"></p>
+				 
+				 <ul *ngIf="data && data.items.items && data.items.items.length">
+					<li *ngFor="let item of data.items.items">
+						<a *ngIf="item.linkType==1" [routerLink]="['/articlebyid/' + item.linkID]">{{item.displayText}}<i _ngcontent-c11="" class="icon-arrow pull-right"></i></a>
+						<a *ngIf="item.linkType==3" target="_blank" [href]="item.linkID">{{item.displayText}}<i _ngcontent-c11="" class="icon-arrow pull-right"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>   

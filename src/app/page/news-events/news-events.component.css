@@ -1,0 +1,31 @@
+.month-box {
+	border: 1px solid #0077c8;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+div {
+	font-family: "roboto-slab";
+}
+
+ul img {
+	width: 12px;
+	float: left;
+	height:12px;
+}
+
+li {
+	display: block;
+	float: left;
+}
+
+a {
+	font-size: 14px;
+	line-height: 12px;
+	display: block;
+	padding: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+	border-right: 1px solid #0077c8;
+}

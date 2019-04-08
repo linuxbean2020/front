@@ -1,0 +1,44 @@
+<div class="row page-block">
+		<div class="col-md-4 col-lg-2 left">
+			<div class="grad-blue-box">
+				<div class="grad-blue first">
+					<h1>{{data.heading}}</h1>
+				</div>
+			</div>		
+		</div>
+		<div class="col-md-4 col-lg-5 mid">
+			<div class="grad-blue-box">
+				<div class="grad-blue">
+					<div class="skew-image-box">
+						<div *ngIf="data.img1" class='image side-clip' [ngStyle]="{'background-image': 'url(' + apiBase + 'file/' + data.img1 + ')'}"></div>
+					</div>
+					<div class="row">
+					<div class="col-sm-8 detail">
+							<h1>{{data.title1}}</h1><br>
+							<h1 class="latin">{{data.subtitle1}}</h1>
+					</div>
+					<div class="col-sm-4">
+						<a [href]="data.buttonLink1" class='btn btn-sm btn-warning more'>{{data.buttonText1}}</a>
+					</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-lg-5 right">
+			<div class="grad-blue-box">
+				<div class="grad-blue">
+					<div class="skew-image-box">
+						<div *ngIf="data.img2" class='image side-clip' [ngStyle]="{'background-image': 'url(' + apiBase + 'file/' + data.img2 + ')'}"></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-8 detail">
+								<h1>{{data.title2}}</h1><br>
+								<h1 class="latin">{{data.subtitle2}}</h1>								
+						</div>
+						<div class="col-sm-4">
+							<a [href]="data.buttonLink2" class='btn btn-sm btn-warning more'>{{data.buttonText2}}</a>
+						</div>	
+					</div>	
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,114 @@
+.page-block{
+	overflow: hidden;
+}
+.col {
+	text-align: left;
+}
+
+a.title {
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+}
+
+a.title.first {
+	font-size: 22px;
+	font-weight: bold;
+	margin-left: -20px;
+}
+
+div.date {
+	margin-bottom: 12px;
+	font-size: 16px;
+	margin-left: -6px;
+}
+
+.main-img {
+	width: 100%;
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+	margin-bottom: 15px;
+	transform: skewX(0deg) translate(5px);
+	-webkit-transform: skewX(0deg) translate(5px);
+}
+
+
+.highlight.col.end {
+    display: flex;
+	align-items: flex-end;
+	text-align: right;
+	height: 100%;
+	padding-bottom: 0;
+	
+}
+
+@media(min-width:768px){
+
+	.skew-box-container{
+		transform: skewX(-10deg) translate(-22px);
+		-webkit-transform: skewX(-10deg) translate(-22px);
+		height: 100%;
+	}
+	.skew-box-container > *{
+		transform: skewX(0deg) translate(10px);
+		-webkit-transform: skewX(0deg) translate(10px);
+	}
+
+	.skew-image-container {
+		transform: skewX(-10deg) translate(-5px);
+		-webkit-transform: skewX(-10deg) translate(-5px);
+	}
+
+	.skew-image-box {
+		overflow: hidden;
+	}
+	.skew-image-box > * {
+		transform: skewX(10deg) translate(-17px);
+		-webkit-transform: skewX(10deg) translate(-17px);
+		width: 112%;
+	}
+
+
+	.left-skew-box-container{
+		transform: skewX(-10deg) translate(-50px);
+		-webkit-transform: skewX(-10deg) translate(-50px);
+	}
+	.left-skew-box-container .skew-box > * {
+		transform: skewX(10deg) translate(50px);
+		-webkit-transform: skewX(10deg) translate(50px);
+		height: 100%;
+	}
+	.left-skew-box-container .skew-box {
+		overflow: hidden;
+		height: 100%;
+	}
+
+
+	.light-grey.col.news-list.skew-box-container {
+		transform: skewX(-10deg) translate(0px);
+		-webkit-transform: skewX(-10deg) translate(0px);
+	}
+	
+}
+
+
+@media (min-width:768px) and (max-width:991px){
+	.highlight.col.end {		
+		align-items: center;
+		text-align: center;	
+	}
+	.light-grey.col.news-list.skew-box-container,.right .highlight.col.end {
+		margin-top: 15px;
+	
+	}
+	
+}
+
+.blog-story {
+	transform: skewX(10deg);
+}
+
+.news-story {
+	transform: skewX(10deg);
+}

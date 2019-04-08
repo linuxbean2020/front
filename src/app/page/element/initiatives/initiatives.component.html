@@ -1,0 +1,21 @@
+<div class='row page-block'>
+	<div class='col-md-4' style="padding-left:50px;">
+		<h1>Our Initiatives</h1>
+		<p class="lead">
+			Hover over any of the service logos to discover an overview of the scope of the project, or click to be taken to the relevant section of the website.
+		</p>
+		<div class='holder'>
+			<p *ngIf="cur">
+				{{cur.blurb}}
+			</p>
+		</div>
+	</div>
+	<div class='col-md-8'>
+		<div class="row">
+			<div class='col-md-4 col-sm-6' *ngFor="let init of initiatives">
+				<a [href]="init.url"><img (mouseleave)="unhover(init)" (mouseenter)="hover(init)" [src]="getIm(init)" class='most-width init' /></a>
+			</div>
+		</div>
+	</div>	
+</div>
+<br /><br />

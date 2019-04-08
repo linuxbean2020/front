@@ -1,0 +1,27 @@
+	<div class="row page-block">
+	<div class="col-sm-12" style="padding-left:15px">
+		<h1 style="padding-left: 15px;">Forthcoming Seafish Events</h1>
+		<div class="col-sm-12 event" *ngFor="let event of events">
+			<div class='row'>
+				<div class="col-sm-3">
+					<div class='cover' style='height: 140px;' [ngStyle]="{'background-image': 'url(' + event.imgUrl + ')'}"></div>
+				</div>
+				<div class="col-sm-4">
+					<div class='title'>{{event.title}}</div>
+					<div class='date'>{{event.event_start | date:'EEEE, MMMM d, y h:mm'}}</div>
+					<div class='address'>{{event.venue}}, <span *ngIf="event.add">{{event.add}},</span> <span *ngIf="event.city">{{event.city}},</span> <span *ngIf="event.county">{{event.county}},</span> {{event.postcode}}</div>
+					<a [routerLink]="'/article/' + event.slug">More Information</a>
+				</div>
+				<div class="col-sm-5">
+					<div style="height: 140px; border: 1px solid #ddd;"
+					     leaflet 
+					     [leafletOptions]="event.map.options"
+					     [leafletLayers]="event.map.layers"
+					     *ngIf="event.map"
+					>
+					</div>
+				</div>								
+			</div>
+		</div>
+	</div>
+</div>

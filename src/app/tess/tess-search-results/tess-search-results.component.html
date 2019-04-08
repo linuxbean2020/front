@@ -1,0 +1,46 @@
+<div class="container">
+	<seafish-secondary-nav slug="tess-home"></seafish-secondary-nav>
+	<div class="row page-block"><seafish-tess-search (goSearch)="goSearch($event)"></seafish-tess-search></div>
+
+	<div class="row page-block">
+		<div class='col-md-12'>
+			<i *ngIf="!results.length">No Results</i>
+			<div class='card result' *ngFor="let result of results">
+				<div class="card-header">
+					{{result.title}}
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<div>
+								<strong>Type of Resource</strong><br />
+								<ul>
+									<li *ngFor="let type of result.types">{{types[type]}}</li>
+								</ul>
+							</div>
+							<div>
+								<strong><span class="port">Location</span></strong><br />
+								<ul>
+									<li *ngFor="let location of result.countries">{{locations[location]}}</li>
+								</ul>
+							</div>
+							<div>
+								<strong>Sector</strong><br />
+								<ul>
+									<li class="sector" *ngFor="let sector of result.sectors">{{sectors[sector]}}</li>
+								</ul>
+							</div>														
+						</div>
+						<div class="col-md-8">
+							<div class='summary'>
+								{{result.summary}}
+							</div>
+							<button [routerLink]="['/tess/profile/' + result.id]" class="btn btn-warning">More Information</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<seafish-publications-footer></seafish-publications-footer>

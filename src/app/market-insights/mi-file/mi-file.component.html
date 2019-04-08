@@ -1,0 +1,25 @@
+<div class='row' *ngIf="files">
+	<div class="col-md-4 col-sm-12">
+			<div class="grad-blue-box">
+				<div class="grad-blue vessel">
+					<ul>
+						<li *ngFor="let p of path">
+							<span *ngIf="p != 'root'"><i class="icon-next"></i>{{p}}</span>
+							<span *ngIf="p == 'root'"><h2>Market Insights</h2></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+	</div>
+	<div class="col-md-8">
+		<a (click)="parent()"><i class="icon-back"></i>Back to parent folder</a>
+		<div *ngFor="let file of files; let i = index;">
+			<div class='file-box'>
+				<a style='color: white !important;' target="_blank" [href]="apiBase + 'mi/download/' + pathString + '/' + window.btoa(file.name) + '/' + code" *ngIf="file.type=='file'" class='btn btn-info btn-sm'><i class="icon-download"></i>Download File</a>
+				<button (click)="open(file.name)" *ngIf="file.type=='dir'" class='btn btn-sm btn-warning'>
+					<i class="icon-folder"></i>Open Folder</button>
+				<strong>{{file.name}}</strong><br />
+			</div>	
+		</div>
+	</div>
+</div>

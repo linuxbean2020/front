@@ -1,0 +1,55 @@
+<div class="row page-block">
+	<div class="col-sm-4">
+		<div class="grad-blue-box">
+			<div class="grad-blue aleft">
+			<h1>Quick Search</h1>
+			<p>The search can be filtered by using the drop down menus to choose <strong>gears, selective devices, species</strong> or <strong>technical information</strong></p>
+		</div>
+	</div>
+</div>
+
+	<div class="col-sm-8">
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<div class="form-group">
+						<input type="text" name="keyword" [(ngModel)]="search.keyword" class='form-control' placeholder="Enter Your Search Term...">
+					</div>					
+				</div>
+			</div>		
+		</div>
+
+		<div class="row">
+
+			<div class="col-sm-6 rfs-search">
+				<select class="form-control" [(ngModel)]="search.type">
+					<option value="0">All Records</option>
+					<option value="1">Gear</option>
+					<option value="2">Selective Devices</option>
+					<option value="3">Technical Information</option>
+				</select>				
+			</div>					
+
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.species">
+						<option value="0">All Species</option>
+						<option [value]="specie.id" *ngFor="let specie of species">{{specie.name}}</option>
+					</select>
+				</div>
+			</div>	
+
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<a (click)="doSearch()" class='btn btn-primary btn-block rfs-btn'>Search Now</a>
+				</div>
+			</div>
+		</div>
+
+
+	</div>	
+</div>

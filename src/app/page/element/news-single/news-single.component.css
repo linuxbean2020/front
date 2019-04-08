@@ -1,0 +1,31 @@
+#meta span {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+@media (min-width: 991px) {
+
+	img { 
+		width:120%;
+		transform: skewX(10deg) translate(-30px);
+	}
+
+	.img-clip {
+		transform: skewX(-10deg) translate(20px);
+		overflow: hidden;
+		height:160px;
+		width:90%;
+	}
+
+	.col-md-12 {
+		margin-left:-20px;
+	}
+
+	.title {
+		padding-left: 30px;
+	}
+}
+
+#meta {
+	margin-bottom: 8px;
+}

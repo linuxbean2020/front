@@ -1,0 +1,83 @@
+<div class="container" *ngIf="profile">
+
+	<div class='row' style="margin-bottom: 15px;">
+		<div class='col-sm-12'>
+			<ul>
+				<img src="assets/img/right-arrow.svg" />
+				<li>
+					<a href="/tess/">TESS Home</a>	
+				</li>
+				<li>
+					<a href="/tess/full-search">Full Search</a>	
+				</li>
+				<li>
+					<a href="/article/tess-glossary">TESS Glossary</a>	
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="grad-blue-box">
+				<div class="grad-blue vessel">
+					<h1>TESS Records</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9" style="padding-right: 50px;">
+			<h1>{{profile.title}}</h1>
+			<div class="row">
+				<div class="col-md-3">
+					<h2>Organisation</h2>
+					<ul *ngIf="profile.org && profile.org[0]">
+						<li class="sectors">{{profile.org[0].name}}</li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h2><span class="port">Location</span></h2>
+					<ul>
+						<li class="sectors" *ngFor="let l of profile.countries">{{locations[l]}}</li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h2>Type</h2>
+					<ul>
+						<li class="sectors" *ngFor="let t of profile.types">{{types[t]}}</li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h2>Sector</h2>
+					<ul>
+						<li class="sectors" *ngFor="let s of profile.sectors">{{sectors[s]}}</li>
+					</ul>
+				</div>
+			</div>
+			<hr />
+			<div class='body' [innerHTML]="profile.description"></div>
+			<hr />
+			<div class='benefit' [innerHTML]="profile.benefit"></div>
+			<hr />
+			<div *ngIf="profile.urls && profile.urls.length">
+				<h3><span class="external">These resources are an external website which Seafish have no control over:</span></h3>
+				<ul style="padding-top:20px;">
+					<li class="links" *ngFor="let link of profile.urls">
+						<a class='outline-button' [href]="link.url" target="_blank">{{link.title}}<i class="icon-arrow"></i></a>
+					</li>
+				</ul>
+			</div>
+			<br style='clear: both' />
+			<hr />
+			<div *ngIf="profile.related_content && profile.related_content.length">
+				<h3><span class="external">Related Content:</span></h3>
+				<ul style="padding-top:20px;">
+					<li class="links" *ngFor="let cont of profile.related_content">
+						<a class='outline-button' [routerLink]="['/tess/profile/' + cont.id]">{{cont.title}}<i class="icon-arrow"></i></a>
+					</li>
+				</ul>
+			</div>
+			<br /><br />
+
+		</div>
+	</div>
+</div>

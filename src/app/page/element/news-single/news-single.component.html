@@ -1,0 +1,12 @@
+<div class="row" *ngIf="news">
+	<div class='col-md-12' style="padding-right: 50px">
+		<h1 class="title">Latest News:</h1>
+		<div class="img-clip">
+		<img [src]="apiBase + '/file/' + news.featured_img" class='full-width' />
+		</div><br />
+		<h1 style='font-size: 1.2em;'><a style='font-weight: bold;' [href]="'/article/' + news.slug">{{news.title}}</a></h1>
+		<div id='meta'><span id='date'>{{news.created_at.date | date:'MMMM d y'}}</span></div>
+		<p>{{news.lead}}</p>
+		<a [href]="'/article/' + news.slug" class='btn btn-sm btn-primary'>Read Full Story<i _ngcontent-c13="" class="icon-arrow pull-right" style="margin-top: 7px;"></i></a>
+	</div>
+</div>

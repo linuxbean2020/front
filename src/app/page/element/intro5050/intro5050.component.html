@@ -1,0 +1,22 @@
+<div class="row intro5050row" *ngIf="data">
+	<div class="col-sm-12 col-md-6 left_inner_wel_img" >
+		<div *ngIf="imgUrl" class='image side-clip' [ngStyle]="{'background-image': 'url(' + imgUrl + ')'}"></div>
+	</div>
+	<div class="col-sm-12 col-md-6 intro">
+		<h1 class='highlight'>{{data.title}}</h1>
+		<p class='lead highlight'>{{data.lead}}</p>
+		<p class='body' [innerHTML]="data.body"></p>
+
+		<element-button #linkButton *ngIf="data && data.linkButton" [data]="data.linkButton"></element-button>
+		
+	</div>
+</div>
+
+<div *ngIf="data && data.featured_text" class="modal" tabindex="-1" role="dialog" [id]="'intro-featured-'+uuid">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body" [innerHTML]="data.featured_text">
+			</div>
+		</div>
+	</div>
+</div> 

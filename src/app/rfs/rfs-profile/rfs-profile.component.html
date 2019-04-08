@@ -1,0 +1,134 @@
+<div class="container" *ngIf="profile">
+
+	<div class='row' style="margin-bottom: 15px;">
+		<div class='col-sm-12'>
+			<ul>
+				<img class="nav-arrow" src="assets/img/left-arrow.svg" />
+				<li>
+				<a href="/rfs/">RFS Home</a>	
+				</li>
+				<li>
+				<a href="/rfs/full-search">RFS Full Search</a>	
+				</li>
+				<li>
+				<a href="/article/rfs-resources">RFS Resources</a>	
+				</li>
+				<li>
+				<a href="/article/rfs-contacts">RFS Contacts</a>	
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="grad-blue-box">
+				<div class="grad-blue vessel">
+				<h1>Vessel:</h1>
+				<h2>{{profile.title}}</h2>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-9" style="padding-right: 50px;">
+		<div class="row" *ngIf="profile.image && profile.image.length">
+			<div class="col-sm-12">
+				<img [src]="apiBase + 'file/' + profile.image" />
+			</div>
+		</div>
+		<br/>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<h1>{{profile.title}}</h1>
+				<table class='table table-sm table-striped'>
+					<tr>
+						<th><span class="port">Location:</span></th>
+						<td>{{profile.location.location}}, {{profile.location.area}}</td>
+					</tr>
+
+					<tr>
+						<th>Size of vessel: </th>
+						<td>{{profile.size}}m</td>
+					</tr>
+
+					<tr>
+						<th>Crew size: </th>
+						<td>{{profile.crew_size}}</td>
+					</tr>
+
+					<tr>
+						<th>Species caught: </th>
+						<td>{{profile.species_list}}</td>
+					</tr>
+
+					<tr>
+						<th>Fishing method: </th>
+						<td [innerHTML]="profile.gear_list"></td>
+					</tr>																				
+
+				</table>
+			</div>	
+
+			<div class="col-sm-6"  *ngIf="profile" style='margin-top: 8px;'>
+				<h5>New Certification Application Status:</h5>
+				<div class='certified' *ngIf="profile.cert_issued" style="margin-bottom: 6px">
+					Certified
+				</div>
+
+				<div class='applied' *ngIf="!profile.cert_issued && profile.applied" style="margin-bottom: 6px">
+					In Application
+				</div>
+
+				<br />
+
+				<table class='table table-sm table-striped'>
+					<tr *ngIf="profile.date_app && profile.date_app !== '0000-00-00'">
+						<th>Application Date: </th>
+						<td>{{profile.date_app | date}}</td>
+					</tr>
+
+					<tr>
+						<th>Certificate Number: </th>
+						<td>{{profile.cert_no}}</td>
+					</tr>
+
+					<tr>
+						<th>Certificate Issued: </th>
+						<td>{{profile.date_issued | date}}</td>
+					</tr>
+
+					<tr>
+						<th>Certificate Expiry: </th>
+						<td>{{profile.date_exp | date}}</td>
+					</tr>																		
+				</table>
+				<br />
+			</div>			
+		</div>		
+
+		<div class="row">
+			<div class="col-sm-12">
+				<table class='table table-sm table-striped'>
+					<tr>
+						<th>PLN: </th>
+						<td>{{profile.pln}}</td>
+					</tr>
+					<tr>
+						<th>Fishing Since: </th>
+						<td>{{profile.fishing_since}}</td>
+					</tr>				
+					<tr>
+						<th>Skipper Name: </th>
+						<td>{{profile.skipper_name}}</td>
+					</tr>						
+					<tr>
+						<th *ngIf="profile.other_info && profile.other_info.length">Other Info: </th>
+						<td>{{profile.other_info}}</td>
+					</tr>																											
+				</table>
+			</div>
+		</div>		
+
+	</div>
+	</div>
+</div>

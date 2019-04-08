@@ -1,0 +1,134 @@
+<div class="container">
+	<div *ngIf="data">
+		<seafish-secondary-nav [id]="data.id"></seafish-secondary-nav>
+		<div class="row content">
+			<div class="col-md-3 pl-md-0 pr-md-0 d-none d-md-block">
+				<div class="left-outer">
+					<div class="grad-blue-box">
+						<div class='side-shape grad-blue left'>
+							<h1>Promoting Seafood</h1>
+							<h3>News</h3>
+							<h2><b>News</b> by Category:</h2>
+							<p>Eating Seafood</p>
+							<p>Sourcing Seafood</p>
+							<p>Safety and Training</p>
+							<p>Insight and Research</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="col-md-9 pl-md-0">
+				<!-- <div *ngIf="featuredImgUrl" class='featured-img' [ngStyle]="{'background-image': 'url(' + featuredImgUrl + ')'}"></div> -->
+				<div class="col-md-12 col-12 left_inner_wel_img" >
+					<div class="featured-img-box">
+						<div *ngIf="featuredImgUrl" class='image featured-img side-clip' [ngStyle]="{'background-image': 'url(' + featuredImgUrl + ')'}"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 pr-md-4 col-sm-12">
+						<h1 class='content-header'>{{data.title}}</h1>
+						<h2 class="publish-date">{{data.created_at | date:'fullDate'}}</h2>
+						<div class='content-lead main-blue'>{{data.lead}}</div>
+						<figure class="figure inline-image" *ngIf="data.inline_img">
+							<img *ngIf="inlineImgUrl" [src]="inlineImgUrl" class="figure-img" [alt]="data.inline_caption">
+							<figcaption *ngIf="data.inline_caption" class="figure-caption text-center">{{data.inline_caption}}</figcaption>
+						</figure>
+						<div class='content-body' [innerHTML]="data.body"></div>
+
+						<div class='row'>
+							<div class='col-sm-3' *ngFor="let imgID of data.gallery">
+								<img [src]="api_base+'file/'+imgID" class='full-width image-thumbnail' />
+							</div>
+						</div>
+						
+						<div *ngIf="data.related.length">
+							<hr />
+							<h2>Related Articles:</h2>
+							<ul>
+								<li *ngFor="let row of data.related"><a [routerLink]="'/article/' + row.slug">{{row.title}}</a></li>
+							</ul>
+						</div>
+
+						<div *ngIf="data.documents && data.documents.length>5">
+							<h3>Downloads</h3>
+							<ul>
+								<li *ngFor="let doc of data.documents">
+									<a target="_blank" [href]="api_base+'publications/dl/'+doc.id">{{doc.title}}</a>									
+								</li>								
+							</ul>
+						</div>
+						<section id='section2' class="row">
+							<div class="col-md-6">
+								<div *ngFor="let toggle of data.toggles" class='outline-button' style='margin-bottom: 8px;' (click)="expand(toggle)">
+										<h1>
+											{{toggle.title}}
+											<span>+</span>
+										</h1>
+										<p *ngIf="expanded(toggle)" [innerHTML]="toggle.text"></p>
+								</div>
+					
+								<div class='row' *ngIf="data.gallery && data.gallery.length">
+									<div class='col-sm-12'><h5>More Images:</h5></div>
+									<br />
+									<div class='col-sm-3 col-12 more-thumbs' *ngFor="let imgID of data.gallery" style='padding: 0'>
+										<img [src]="api_base+'file/'+imgID" class='full-width img-thumbnail' (click)="showImage(imgID)" />
+									</div>
+								</div>				
+							</div>
+						</section>
+					</div>					
+					<div class="col-md-4 col-sm-12">
+						<button class='btn btn-block btn-warning subscribe-btn'>Subscribe to our <strong>Media Alerts</strong></button>
+						<br />
+						<img width="100%" src="assets/img/seafish-sidebar.png" />
+						<div *ngIf="data.sidebars && data.sidebars.length">
+							<div *ngFor="let sidebar of data.sidebars">
+								<div *ngIf="sidebar.text"  class='sidebar'>
+									<h2 class='sidebar-header'>
+										<img *ngIf="sidebar.title != 'Spokesperson'" width="25px" src="assets/img/{{icons[sidebar.title]}}" />
+										{{sidebar.title}}
+									</h2>
+									<div *ngIf="sidebar.title != 'Spokesperson'" [innerHTML]="sidebar.text"></div>
+									<div *ngIf="sidebar.title == 'Spokesperson' && data.person">
+										<img [src]="api_base + 'file/' + data.person.photo" class='full-width' />
+										<strong>{{data.person.first_name}} {{data.person.last_name}}</strong><br />
+										<span *ngIf="data.person.role">{{data.person.role}}</span><br />
+										<span *ngIf="data.person.phone1">{{data.person.phone1}}</span><br />
+										<span *ngIf="data.person.phone2">{{data.person.phone2}}</span><br />
+										<a *ngIf="data.person.email">{{data.person.email}}</a><br />
+										<span *ngIf="data.person.linkedin"><a href="http://linkedin/in/{{data.person.linkedin}}">{{data.person.linkedin}}</a></span>
+									</div>
+								</div>
+							</div>
+						</div>					
+						<br />
+						<div *ngIf="data.documents && data.documents.length && data.documents.length<6">
+							<h2 class='sidebar-header'><i class="icon-download"></i>Downloads</h2>
+							<ul>
+								<li *ngFor="let doc of data.documents">
+									<a target="_blank" [href]="api_base+'publications/dl/'+doc.id">{{doc.title}}</a>									
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<seafish-temp-footer></seafish-temp-footer>
+
+<div class="modal" tabindex="-1" role="dialog" id="image">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+			<div class="modal-body">
+				<img [src]="modalImage" *ngIf="modalImage" class='full-width' />
+			</div>
+		</div>
+	</div>
+</div>

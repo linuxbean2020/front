@@ -1,0 +1,36 @@
+<div class="row page-block" style="align-items: center" *ngIf="data">
+	<div class="col-md-6 col-sm-12 col-xs-12 left_inner_wel_img">	
+		<div class="col grad-blue col1 ">
+			<h1 class="image">{{data.header}}</h1>
+			<p class="image">{{data.body}}</p>  
+		</div>
+	</div>
+	<div class="col-md-6 col-sm-12 col-xs-12 images">  
+		<div class="row col1-2 ">
+
+			<div class="col-sm-4 col1-2-img"> 
+				<a [href]="data.url1" *ngIf="data.url1">
+					<img [src]="imgUrl1" />
+				</a>
+				<img [src]="imgUrl1" *ngIf="!data.url1" />
+			</div>
+
+			<div class="col-sm-4 col1-2-img"> 
+				<a [href]="data.url2" *ngIf="data.url2">
+					<img [src]="imgUrl2" />
+				</a>
+				<img [src]="imgUrl2" *ngIf="!data.url2" />
+			</div>
+
+			<div class="col-sm-4 col1-2-img"> 
+				<a [href]="data.url3" *ngIf="data.url3">
+					<img [src]="imgUrl3" />
+				</a>
+				<img [src]="imgUrl3" *ngIf="!data.url3" />
+			</div>									
+
+		</div>
+		
+	</div>		
+</div>
+

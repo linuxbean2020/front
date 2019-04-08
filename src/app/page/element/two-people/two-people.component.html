@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1>{{data.header}}</h1>
+	</div>
+</div>
+<div class="row" style="margin-top: 30px;">
+	<div class="col-md-6" *ngIf="person1">
+		<img [src]="apiBase + 'file/' + person1.photo" class='full-width' *ngIf="person1.photo" />
+		<strong class="main-blue" style="margin-top:10px">{{person1.first_name}} {{person1.last_name}}</strong><br />
+		<span class="role body-color" *ngIf="person1.role">{{person1.role}}</span><br />
+		<div *ngIf="person1.phone1 && person1.phone1.length" class="phone body-color">
+			T: <a href="tel:{{person1.phone1}}">{{person1.phone1}}</a></div>
+		<div *ngIf="person1.phone2 && person1.phone2.length" class="phone body-color">
+			M: <a href="tel:{{person1.phone2}}">{{person1.phone2}}</a></div>
+		<a *ngIf="person1.email" href="mailto:{{person1.email}}">{{person1.email}}</a><br />
+		<a class="main-blue" *ngIf="person1.linkedin" href="http://linkedin.com/in/{{person1.linkedin}}" target="_blank"><i class="icon-linkedin"></i></a>
+	</div>
+	<div class="col-md-6" *ngIf="person2">
+		<img [src]="apiBase + 'file/' + person2.photo" class='full-width' *ngIf="person2.photo" />
+		<strong class="main-blue" style="margin-top:10px">{{person2.first_name}} {{person2.last_name}}</strong><br />
+		<span class="role body-color" *ngIf="person2.role">{{person2.role}}</span><br />
+		<div *ngIf="person2.phone1 && person2.phone1.length" class="phone body-color">
+			T: <a href="tel:{{person2.phone1}}">{{person2.phone1}}</a></div>
+		<div *ngIf="person2.phone2 && person2.phone2.length" class="phone body-color">
+			M: <a href="tel:{{person2.phone2}}">{{person2.phone2}}</a></div>
+		<a *ngIf="person2.email" href="mailto:{{person2.email}}">{{person2.email}}</a><br />
+		<a class="main-blue" *ngIf="person2.linkedin" href="http://linkedin.com/in/{{person2.linkedin}}" target="_blank"><i class="icon-linkedin" style="margin:auto;"></i>
+		</a>		
+	</div>	
+</div>
+<div class="row">
+	<div class="col-md-12" style="margin-top:30px;">
+		<element-button *ngIf="data && data.linkButton" [data]="data.linkButton"></element-button>
+	</div>
+</div>

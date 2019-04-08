@@ -1,0 +1,87 @@
+<header class="py-3" (mouseenter)="leave()">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3 col-sm-12 col-xs-12  pt-1 logo_div">
+				<img routerLink='/' src="assets/img/logo.png" />
+				<button class="navbar-toggler pull-right togglememnus" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+					<fa name="bars" size='1x'  ></fa>
+				</button>
+			</div>
+				
+			<div class="col-md-8 col-sm-12 col-xs-12 searchbar">
+				<input [(ngModel)]="keyword" type="" placeholder='Start typing here to search the website... ' class='search' (keyup)="search()" />
+				<span class="pull-right search-icons"><fa name="search" ></fa></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				&nbsp;
+			</div>
+			<div class="col-md-8">
+				<ul class='search-results' *ngIf="results.length">
+					<li *ngFor="let result of results; let i = index;">
+						<div *ngIf="result.category.length" class="search-cat"><strong>{{result.category}}</strong></div>
+						<ul>
+							<li (click)="resetSearch()" *ngFor="let item of result.items">
+								<a *ngIf="!item.page" [routerLink]="'/article/' + item.slug">{{item.title}}</a>
+								<a *ngIf="item.page" [routerLink]="'/' + item.route">{{item.title}}</a>
+							</li>
+						</ul>
+					</li>
+				</ul> 
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="nav-scroller" >
+	<nav class="navbar navbar-expand-md" id="top-nav">
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a (click)="leave()" [class.hide]="navUp" class="p-2 px-4 firstnav" [routerLink]="['/']">Home</a></li>
+				<li class="nav-item"><a (click)="leave()" [class.hide]="navUp" (mouseenter)="hover('about')" class="p-2 px-4" [routerLink]="['/about']">About Us</a><i class="fa fa-caret-down d-md-none" (click)="toggale('about')"></i></li>
+				<li class="nav-item"><a (click)="leave()" [class.hide]="navUp" (mouseenter)="hover('changing-landscapes')" class="p-2 px-4" [routerLink]="['/changing-landscapes']">Changing Landscapes</a><i class="fa fa-caret-down d-md-none" (click)="toggale('changing-landscapes')"></i></li>
+				<li class="nav-item"><a (click)="leave()" [class.hide]="navUp" (mouseenter)="hover('promoting-seafood')" class="p-2 px-4" [routerLink]="['/promoting-seafood']">Promoting Seafood</a><i class="fa fa-caret-down d-md-none" (click)="toggale('promoting-seafood')"></i></li>
+				<li class="nav-item"><a (click)="leave()" [class.hide]="navUp" (mouseenter)="hover('responsible-sourcing')" class="p-2 px-4" [routerLink]="['/responsible-sourcing']">Responsible Sourcing</a><i class="fa fa-caret-down d-md-none" (click)="toggale('responsible-sourcing')"></i></li>
+				<li class="nav-item"><a (click)="leave()" [class.hide]="navUp" (mouseenter)="hover('safety-training')" class="p-2 px-4" [routerLink]="['/safety-training']">Safety &amp; Training</a><i class="fa fa-caret-down d-md-none" (click)="toggale('safety-training')"></i></li>
+				<li class="nav-item"><a (click)="leave()" [class.hide]="navUp" (mouseenter)="hover('insight-research')" class="p-2 px-4" [routerLink]="['/insight-research']">Insight &amp; Research</a><i class="fa fa-caret-down d-md-none" (click)="toggale('insight-research')"></i></li>  
+			</ul>
+		
+		</div>  	
+	</nav>
+	<div class='nav-pop grad-blue' *ngIf="navUp" (mouseleave)="leave()">
+		<div class="nav-row">
+			<div class="col-sm-3">
+				<div class='sub-nav'>
+					<h1>Most Popular Pages</h1>
+					<ul *ngIf="popular && popular.length" class='subnav'>
+						<li (click)="leave()" [routerLink]="'/article/' + link.slug" *ngFor="let link of popular">{{link.title}}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class='sub-nav'>
+					<h1>Useful Links</h1>
+					<ul *ngIf="useful && useful.length" class='subnav'>
+						<li *ngFor="let link of useful">
+							<a class='text-white' *ngIf="link.article" (click)="leave()" [routerLink]="'/article/' + link.article.slug">
+								{{link.article.title}}
+							</a>
+							<a class='text-white' *ngIf="link.page" (click)="leave()" [routerLink]="'/'+link.page.route">
+								{{link.page.title}}
+							</a>							
+						</li>
+					</ul>					
+				</div>
+			</div>
+			<div class="col-sm-6 featured-article-box">
+				<div class="featured-article">
+					<h1>Featured Article</h1>
+					<h2 class='big-link'><a [routerLink]="'/about/vacancies'">Vacancies: work for Seafish</a></h2>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+ 

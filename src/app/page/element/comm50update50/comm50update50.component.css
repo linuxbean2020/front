@@ -1,0 +1,162 @@
+.content {
+	min-height : 280px;
+	padding: 50px;	
+	font-family: roboto-slab;
+}
+
+.comm {	
+	color: white;
+	padding-left: 58px;
+
+}
+
+.update {
+	background: #555354;
+	text-align: right;
+	color: white;
+	overflow: hidden;
+}
+
+h1 {
+	color: white;
+	font-family: roboto-slab;
+	font-weight: normal;
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+
+h5 {
+	color:#fff;
+}
+
+button {
+	margin-bottom: 20px;
+}
+
+img {
+	max-width: 100%;
+}
+span.pl-70 {
+    padding-left: 60px;
+}
+
+span.pl-35 {
+    padding-left: 35px;
+}
+
+.social {
+	margin-top:10px;
+}
+
+
+/* .rotate-main-div{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    transform: skew(-10deg) translate(-20px);
+    -webkit-transform: skew(-10deg) translate(-20px);
+    position: relative;
+	overflow: hidden;
+	background: #a6aaa9;
+}
+.rotate-child-div{
+	transform: skew(10deg) translate(0px);
+   -webkit-transform: skew(10deg) translate(0px);
+} */
+.rotate-main-div{
+	padding: 0px 5px;
+}
+.rotate-child-div{
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;	
+	position: relative;
+	overflow: hidden;
+	background: #a6aaa9;
+}
+
+
+.mt-25{
+	margin-top: 25px;
+}
+.t-l{
+	text-align: left;
+	margin-left:25px;
+}
+
+
+.icon-warning-right-arrow {
+      margin-left: 0px;
+    margin-right: -40px;
+   }
+
+
+@media only screen and (max-width:1025px){
+/* 	.rotate-main-div{
+		transform: skew(-10deg) translate(-20px);
+		-webkit-transform: skew(-10deg) translate(-30px);
+		
+	} */
+	h1 {
+		font-size: 1.3em;
+	}
+}
+@media only screen and (max-width:767px){
+/* 	.rotate-main-div{
+		transform: skew(0deg) translate(0px);
+		-webkit-transform: skew(0deg) translate(0px);
+	}
+	.rotate-child-div{
+		transform: skew(0deg) translate(0px);
+	   -webkit-transform: skew(0deg) translate(0px);
+	} */
+	h1{
+		font-size: 22px;
+    
+	}
+	
+	.comm {
+	
+		padding-left: 20px;
+	
+	}
+	
+	img{
+		max-width: 100%;
+		max-height: 150px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		margin-top: 10px;
+		padding-left:10px;
+	}
+
+	span.pl-70 {
+		padding-left: 35px;
+	}
+	.mt-25-x{
+		margin-top: 25px;
+	}
+}
+
+
+@media(min-width:768px){
+	.rotate-child-div{
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		transform: skew(-10deg) translate(-49px);
+		-webkit-transform: skew(-10deg) translate(-49px);
+		position: relative;
+		overflow: hidden;
+		background: #a6aaa9;
+	}
+	.rotate-child-div>*{
+		transform: skew(10deg) translate(25px);
+	   -webkit-transform: skew(10deg) translate(25px);
+	}
+}
+
+img {
+	padding-left:10px;
+}

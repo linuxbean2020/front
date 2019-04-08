@@ -1,0 +1,82 @@
+footer{
+	overflow: hidden;
+}
+footer .first {
+	background: #0092d5;
+	background-image : url('/assets/img/footer.png');	
+	overflow: hidden
+}
+footer .first > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+ul.footer-nav-list {
+    list-style-type: none;
+	padding: 20px 20px;
+	
+}
+ul.footer-nav-list li {
+    float: left;
+    width: 30%;
+   
+}
+ul.footer-nav-list li a {
+    color: #fff !important;
+    opacity: 0.8;
+	line-height: 27px;
+	font-family: roboto-slab;
+}
+ul.footer-nav-list li a:hover {
+    opacity: 1;
+    }
+
+ul {
+	margin-bottom:0px;
+}    
+
+footer .second {
+	background: #1b4363;
+	
+}
+
+
+
+.footer-bottom-heading {
+    padding: 40px 8%;
+}
+.footer-bottom-heading h5 {
+    color: #ffffff;
+    font-weight: 300;
+}
+.footer-bottom-cookies{
+    padding: 27px 0px 0px 0px;
+}
+.footer-bottom-cookies p {
+    color: #ffffffd9;
+}
+.footer-bottom-cookies-button {
+    margin-top: 40px;
+}
+a.btn.btn-primary.btn-new {
+    box-shadow: 0px 0px 60px #000000d9;
+    padding: 2px 20px;
+    color:#fff;
+}
+@media only screen and (max-width:768px){
+	ul.footer-nav-list li {
+		width: 50%;
+	}
+	.footer-bottom-heading {
+		padding: 40px 25% 0px 0px;
+	}
+	.footer-bottom-cookies-button {
+		padding-top: 0%;
+		
+		margin-bottom: 21px;
+	}
+	.footer-bottom-cookies{
+		padding: 10px 0px 0px 0px;
+	}
+
+}

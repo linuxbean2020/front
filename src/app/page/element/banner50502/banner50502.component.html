@@ -1,0 +1,25 @@
+	<div class="row page-block" style="align-items: center" *ngIf="data">
+	<div class="col-sm-5 left">	
+		<div class="col white">
+			<h1>{{data.header}}</h1>
+		</div>
+	</div>
+	<div class="col-sm-7 right">
+		<div class="grad-blue-box">
+			<div class="col grad-blue">
+				<div class="row flex">
+					<div class="col-sm-5 col-md-4">
+						<div class='subheader'>
+							{{data.subheader}}
+						</div>
+					</div>
+					<div class="col-sm-7 col-md-8">
+						<div [innerHTML]="data.body" class='body'>
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>		
+</div>
+

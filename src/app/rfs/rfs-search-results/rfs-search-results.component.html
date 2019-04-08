@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+		<seafish-rfs-full-search (triggerSearch)="triggerSearch($event)"></seafish-rfs-full-search>
+		</div>
+	</div>
+	<div class="row page-block">
+		<div class="col-sm-12" style="padding:0 25px;">
+			<h1>Search Results</h1>
+			<i *ngIf="results && !results.length">No Search results</i>
+			<div *ngIf="results">
+				<div class="card" *ngFor="let row of results">
+					<div class="card-header">
+						<strong>{{row.title}}</strong>
+					</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-4">
+							<h4>Details</h4>
+							<table class='table'>
+								<tr><th><span class="ship">Boat PLN:</span></th><td>{{row.pln}}</td></tr>
+								<tr><th><span class="port">Port:</span></th><td><span *ngIf="row.location">{{row.location.location}}</span></td></tr>
+							</table>
+						</div>
+						<div class="col-sm-4">
+							<h4>New Certification</h4>
+							<table class='table'>
+								<tr><th>Applied:</th><td><span class="yes-applied" *ngIf="row.applied">YES</span><span *ngIf="!row.applied">NO</span></td></tr>
+								<tr><th>Certificate Issued:</th><td><span class="yes" *ngIf="row.cert_issued">YES</span><span *ngIf="!row.cert_issued">NO</span></td></tr>
+							</table>
+						</div>
+						<div class="col-sm-4">
+							<a [routerLink]="'/rfs/profile/' + row.id" class='btn btn-warning'>View</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

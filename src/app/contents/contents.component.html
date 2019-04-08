@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="col-sm-9">
+		<h1>{{category.name}}</h1>
+		<table class='table table-striped'>
+			<tr *ngFor="let content of contents">
+				<td><a [routerLink]="'/article/'+content.slug">{{content.title}}</a></td>
+			</tr>
+		</table>
+	</div>
+</div>

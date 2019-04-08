@@ -1,0 +1,27 @@
+.page-block {
+
+	background: #555354;
+	color: white;	
+	font-family: roboto-slab;
+	padding: 20px;
+}
+
+h1 {
+	color: white;
+	font-family: roboto-slab;
+	font-weight: normal;
+	font-size: 1.4em;
+	margin-bottom: 20px;
+}
+
+button {
+	margin-bottom: 20px;
+}
+
+img {
+	max-width: 100%;
+}
+
+.row {
+	padding:50px;
+}

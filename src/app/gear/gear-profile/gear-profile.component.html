@@ -1,0 +1,194 @@
+<div class="container" *ngIf="profile">
+
+	<div class='row' style="margin-bottom: 15px;">
+		<div class='col-sm-12'>
+			<ul class="menu">
+				<img class="nav-arrow" src="assets/img/right-arrow.svg" />
+				<li>
+				<a class="menu" href="/gear/">Gear Database Home</a>	
+				</li>
+				<li>
+				<a class="menu" href="/gear/full-search">Gear Full Search</a>	
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2">
+			<div class="grad-blue-box">
+				<div class="grad-blue vessel">
+					<h1 *ngIf="profile.type=='gear'">Seafish Gear Database 
+						<br />
+						<span style="font-style: italic; font-weight: lighter; font-family:'roboto';"> - Gear</span></h1>
+					<h1 *ngIf="profile.type=='devices'">Seafish Gear Database
+						<br />
+						<span style="font-style: italic; font-weight: lighter; font-family:'roboto';"> - Device</span></h1>
+					<h1 *ngIf="profile.type=='tech'">Seafish Gear Database
+						<br />
+						<span style="font-style: italic; font-weight: lighter; font-family:'roboto';"> - Technical Info</span></h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-7">
+			<h1>{{profile.title}}</h1>
+			<div class="row" style="padding:0 15px;">
+					<div *ngIf="profile.alt_names" style="padding-bottom: 20px">
+						<strong>Alternative Names:</strong><br />
+						{{profile.alt_names}}
+					</div>
+					<div [innerHTML]="profile.description" style="padding-bottom: 20px;"></div>
+					<img [src]="apiBase + 'file/' + profile.featured_img" *ngIf="profile.featured_img" class='full-width' />		
+				
+					<div class="doc-download grad-blue" *ngIf="profile.documents && profile.documents.length">
+						<strong>Download:</strong><br />
+						<ul>
+							<li *ngFor="let doc of profile.documents"><a target="_blank" [href]="apiBase + 'file/' + doc.id">{{doc.pretty_name}}</a></li>
+						</ul>
+					</div>							
+			</div>
+
+			<div class="row" *ngIf="profile.type=='gear'" style="padding:0 15px;">
+					<h3>Environmental Impact</h3>
+					<div [innerHTML]="profile.env_copy"></div>				
+			</div>
+
+			<div class="row" *ngIf="profile.type=='devices'">
+				<div class="col-md-12">
+					<h3>Relevant Fishing Gear</h3>
+					<div class="results" *ngFor="let gear of profile.relevant_gear">{{gear.name}}</div>					
+				</div>
+			</div>
+
+			<div class="row page-block" *ngIf="profile.type=='devices'" style="padding:0 15px;">
+				<div class="col-md-5">
+					<h3>Release Effectiveness</h3>
+					<div class="inner"><span *ngIf="species">
+						<seafish-effect-score *ngFor="let r of profile.release_effectiveness" [data]="r" [speciesList]="species"></seafish-effect-score>
+					</span>
+				</div>
+				</div>
+				<div class="col-md-5">
+					<h3>Retention Effectiveness</h3>
+					<div class="inner"><span *ngIf="species">
+						<seafish-effect-score *ngFor="let r of profile.retention_effectiveness" [data]="r" [speciesList]="species"></seafish-effect-score>
+					</span>
+				</div>
+				</div>
+			</div>
+			<div class="row" style="padding:0 15px;">
+				<div class="col-md-12">
+					<div class="clear"></div>
+					<h3>Size Selectivity</h3>
+					{{profile.size_selectivity}}
+				</div>
+			</div>			
+
+			<div *ngIf="profile.type!='tech'">
+				<div class="row page-block" style="padding:0 15px;">
+					<div class="col-md-12">
+						<h3>Further Information</h3>
+						<div [innerHTML]="profile.other_info"></div>
+					</div>
+				</div>							
+			</div>		
+
+			<div *ngIf="profile.type=='tech' && profile.gear">
+				<h3>Related Gear</h3>
+				<ul>
+					<li class="results" *ngFor="let g of profile.gear">{{g.name}}</li>
+				</ul>
+			</div>					
+
+		</div>
+		<div class="col-md-3">
+			<img src="/assets/img/shoal.svg" width="100%" style="margin-bottom: 30px">
+			<h3>Reports</h3>
+						<ul>
+							<li class="docs" *ngFor="let report of profile.reports"><a [href]="apiBase + 'file/' + report.id">{{report.pretty_name}}</a></li>
+						</ul>	
+				<div class="clear"></div>		
+				<h3>Gear Classification</h3>
+					<ul>
+						<li class="results" *ngFor="let type of profile.types">{{type.name}}</li>
+					</ul>
+				<div class="clear"></div>
+				<h3>Similar Gear</h3>
+					<ul>
+						<li class="results" *ngFor="let similar of profile.similar">{{similar.name}}</li>
+					</ul>
+				<div class="clear"></div>
+				<h3>Main Target Species (UK)</h3>
+					<ul>
+						<li class="results" *ngFor="let species of profile.species">{{species.name}}</li>
+					</ul>
+				<div class="clear"></div>
+				<h3>Bycatch</h3>
+					<div>
+						<strong>Possible Bycatch: </strong><br />
+						<ul>
+							<li class="results" *ngFor="let bycatch of profile.bycatch">{{bycatch.name}}</li>
+						</ul>
+						<div class="clear"></div>
+						<strong>Relevant Selectivity Devices: </strong><br />
+						<ul>
+							<li class="results" *ngFor="let device of profile.devices">{{device.name}}</li>
+						</ul>						
+					</div>
+					<div *ngIf="profile.type=='devices'">
+							<h3>Selection Type</h3>
+							
+								<span *ngIf="profile.selection_type == 'preselection'" class="results">Pre Capture</span>
+								<span *ngIf="profile.selection_type == 'postselection'" class="results">Post Capture</span>
+							<div class="clear"></div>
+							<h3>Similar Devices</h3>
+							
+								<ul>
+									<li class="results" *ngFor="let related_device of profile.related_devices">{{related_device.name}}</li>
+								</ul>
+					</div>
+		</div>
+	</div>
+
+<div class="row page-block">
+	<div class="col-md-2  col-sm-12 grad-blue left-slice">
+        <div class=" left-slice-box">
+						<h3><span style="font-family: 'roboto'; font-style: italic; font-weight: normal;">{{profile.title}}</span> - Images</h3>
+		</div>
+	</div>				
+						
+	<div class="col-md-10 col-sm-12 p-0 right-slice">
+        <div class="grad-blue">
+            <div class="row right-slice-box">
+            	<ul>
+					<li class="gallery" *ngFor="let image of profile.images">
+						<img class="thumbs" [src]="apiBase + 'file/' + image.id" (click)="showImage(imgID)" />
+							<figure>{{image.pretty_name}}</figure>
+					</li>
+				</ul>							
+			</div>
+		</div>
+	</div>	
+</div>
+
+<div class="row page-block">
+	<div class="col-md-2  col-sm-12 grad-blue left-slice">
+           <div class=" left-slice-box">
+						<h3><span style="font-family: 'roboto'; font-style: italic; font-weight: normal;">{{profile.title}}</span> - Videos</h3>
+
+			</div>
+	</div>				
+						
+	<div class="col-md-10 col-sm-12 p-0 right-slice">
+        <div class="grad-blue">
+            <div class="row right-slice-box">
+            	<ul>
+					<li class="videos" *ngFor="let video of profile.videos">
+								<iframe *ngIf="video.url" width="280px" height="158px" [src]="video.url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</li>
+				</ul>							
+			</div>
+		</div>
+	</div>	
+	</div>
+</div>

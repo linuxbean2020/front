@@ -1,0 +1,11 @@
+.p-right{
+	padding: 0;
+}
+@media(min-width:768px){
+	.p-left {
+		padding-left:30px;
+	}
+	.p-right{
+		padding-left:100px
+	}
+}

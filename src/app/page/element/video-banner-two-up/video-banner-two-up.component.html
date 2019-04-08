@@ -1,0 +1,30 @@
+<div class="outer" *ngIf="data">
+    <div class="row page-block">
+        <div class="col-md-3  col-sm-12 grad-blue left-slice">
+            <div class=" left-slice-box">
+                <h1 class='highlight'>{{data.header}}</h1>
+                <p>Discover more content on <a href="https://www.youtube.com/user/SeafishTheAuthority" style="color:#fff;">YouTube</a>.
+                </p><br />
+                <a href="https://www.youtube.com/user/SeafishTheAuthority"><img src="/assets/img/yt_logo_mono_dark.svg" width="180px" /></a>
+            </div>
+        </div> 
+    
+        <div class="col-md-9 col-sm-12 p-0 right-slice">
+            <div class="grad-blue">
+                <div class="row right-slice-box">
+                    <div class="col-sm-6">
+                        <div class="videoWrapper">
+                                <iframe width="450" height="300" [src]="url1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="videoWrapper">
+                                <iframe width="450" height="300" [src]="url2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </div>                               
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

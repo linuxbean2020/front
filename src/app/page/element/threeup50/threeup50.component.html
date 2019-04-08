@@ -1,0 +1,30 @@
+<div class="main-outer">
+	<div class="outer left-rotate-border-main" *ngIf="data">
+			<div  class="left-rotate-border-child">
+				<div class="row">
+					<div class="col-sm-12 ">
+						<h1 class='highlight'>{{data.header}}</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-12">
+						<h3 class='highlight'>{{data.title1}}</h3>
+						<p class='highlight'>{{data.body1}}</p>
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<h3 class='highlight'>{{data.title2}}</h3>
+						<p class='highlight'>{{data.body2}}</p>
+					</div>
+					<div class="col-md-3 col-sm-12">
+						<h3 class='highlight'>{{data.title3}}</h3>
+						<p class='highlight'>{{data.body3}}</p>
+					</div>          
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<element-button #linkButton buttonClass="orange"></element-button>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>

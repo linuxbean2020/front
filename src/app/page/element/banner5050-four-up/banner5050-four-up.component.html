@@ -1,0 +1,26 @@
+<div class="row page-block" style="align-items: center" *ngIf="data">
+	<div class="col-sm-6">	
+		<div class="col grad-blue col1">
+			<h1>{{data.header}}</h1>
+			<p [innerHTML]="data.body"></p>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="col">
+			<div class="row">
+				<div class="col-sm-3">
+					<img [src]="imgUrl1" style='max-width: 100%' />
+				</div>
+				<div class="col-sm-3">
+					<img [src]="imgUrl2" style='max-width: 100%' />
+				</div>
+				<div class="col-sm-3">
+					<img [src]="imgUrl3" style='max-width: 100%' />
+				</div>	
+				<div class="col-sm-3">
+					<img [src]="imgUrl4" style='max-width: 100%' />
+				</div>												
+			</div>
+		</div>
+	</div>		
+</div>

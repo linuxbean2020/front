@@ -1,0 +1,31 @@
+<div *ngIf="data" style="height:100%">
+	<div class="row">
+		<div class="rotate-10">
+		<div class="col-sm-12 rotate-back">
+			<div class="col text-left">
+				<h1>{{data.header}}</h1>
+				<p class='link-lead'>{{data.lead}}</p>
+				<p class='body' [innerHTML]="data.body"></p>
+
+				<div class="dropdown pull-left">
+					<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Quick Links
+					</button>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a *ngFor="let item of data.items" class="dropdown-item" (click)="go(item.url)">{{item.displayText}}</a>
+					</div>
+
+				</div>
+				<br /><br />
+
+				<button class="btn btn-warning pull-left clearfix" type="button" aria-haspopup="true" aria-expanded="false">
+					Sign up for our Newsletters<i class="icon-warning-right-arrow"></i>
+				</button>		
+
+				
+			</div>
+		</div>
+	</div>
+	</div>
+</div>

@@ -1,0 +1,83 @@
+	<div class="container">
+		<div class='row'>
+	<div class='col-sm-12'>
+		<ul>
+			<img src="assets/img/right-arrow.svg" />
+			<li class="menu">
+			<a href="/">Home</a>	
+			</li>
+			<li class="menu">
+			<a href="/media-room">Media Room</a>	
+			</li>
+			<li class="menu">
+			<a href="https://seafish.assetbank-server.com/assetbank-seafish/action/viewHome">Asset Bank</a>	
+			</li>
+			<li class="menu">
+			<a href="/about/contact">Contact Us</a>	
+			</li>
+		</ul>
+	</div>
+</div>
+	<div class="row page-block">
+		<div class="col-md-3">
+			<div class="results-1"><h2>Results by Category</h2>
+			<ul>
+				<li class="results"><a (click)="resetCat()">All</a></li>
+				<li class="results" *ngFor="let cat of cats"><a (click)="filterCat(cat)">{{cat.Document_Category}}</a></li>
+			</ul>
+			<br /><br />	
+			</div>
+			<div class="results-2" style="clear:both; padding-top:20px;"><h2>Results by File Type</h2>
+			<ul>
+				<li class="results"><a (click)="resetType()">All</a></li>
+				<li class="results" *ngFor="let type of types"><a (click)="filterType(type)">{{type.Media_Format_Type}}</a></li>
+			</ul>
+		</div>
+		</div>
+
+		<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-2">
+				<img src="/assets/img/seafood-guide.png" height="73%" />
+			</div>
+			<div class="col-md-10" style="padding:0 0 30px 80px">
+				<h1>Publications</h1>
+			<div>
+			</div>
+				<p>Search for digital publications and reports online:</p>
+				<div class="row">
+					<div class="col-md-10">
+						<input type="text" class="form-control" placeholder="Search..." [(ngModel)]="search.keyword" />
+						<button (click)="filterKeyword()" class='btn btn-warning'>Search</button>
+					</div>
+				</div>
+				<hr />
+			{{noResults}} results found, showing {{results.length}}
+			</div>
+			<br /><br />
+			<table class='table'>
+				<tr>
+					<th style='width: 60%'>Publication Information</th>
+					<th>Release Date</th>
+					<th>&nbsp;</th>
+				</tr>
+
+				<tr *ngFor="let result of results">
+					<td>
+						<h3 class='title'>{{result.Title}}</h3>
+						<p>{{result.Summary}}</p>
+					</td>
+					<td>{{months[result.Pub_Month]}} {{result.Pub_Year}}</td>
+					<td>
+						<div *ngIf="result.Document">
+							<a target="_blank" [href]="apiBase + 'publications/dl/' + result.ID"><span class="download">Download</span></a>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+			<br />
+			<button (click)='loadMore()' class='btn btn-block btn-light' *ngIf="noResults > results.length">Load Next 25 Results</button>
+		</div>
+	</div>
+</div>

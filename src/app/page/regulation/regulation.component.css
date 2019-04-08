@@ -1,0 +1,10 @@
+.row{
+    
+    height: 100%;
+}
+.page-block{
+    overflow-x: hidden;
+}
+.container{
+    overflow-x: hidden;
+}

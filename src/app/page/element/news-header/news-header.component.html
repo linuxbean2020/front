@@ -1,0 +1,47 @@
+	<div class="row">
+	<div class="col-md-4 col-lg-2 p-0 left left-skew-box-container">
+		<div class="skew-box">
+			<div class='grad-blue col'>
+				<h1>Latest News + Our Views</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-7 col-lg-4 p-0 mid ">		
+		<div class='grad-blue col skew-box-container'>
+			<div class="skew-box">
+				<div *ngFor="let row of news; let i = index" class='news-story'>
+					<div class="skew-image-container">
+						<div class="skew-image-box">
+								<div *ngIf="i==0 && imgUrlNews" class='main-img' [ngStyle]="{'background-image': 'url(' + imgUrlNews + ')'}"></div>
+						</div>
+							
+					</div>
+					
+					<a [routerLink]="['/article/' + row.slug]" class='title' [class.first]="i==0">{{row.title}}</a>
+					<div class='date'>{{row.created_at.date | date:'MMMM d y'}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-7 col-lg-4 order-md-1 order-lg-0 p-0 mid ">		
+		<div class='light-grey col news-list skew-box-container'>
+			<div class="skew-box">	
+				<div *ngFor="let row of blog; let i = index" class='blog-story'>
+					<div class="skew-image-container">
+						<div *ngIf="i==0 && imgUrlBlog" class='main-img' [ngStyle]="{'background-image': 'url(' + imgUrlBlog + ')'}"></div>
+					</div>
+					<a [routerLink]="['/article/' + row.slug]" class='title' [class.first]="i==0">{{row.title}}</a>
+					<div class='date'>{{row.created_at.date | date:'MMMM d y'}}</div>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4 col-lg-2 p-0 right">
+		<div class='highlight col end'>
+			<h1>More News + Our Views</h1>
+		</div>
+	</div>
+

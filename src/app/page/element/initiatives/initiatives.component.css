@@ -1,0 +1,22 @@
+img {
+	cursor: pointer;
+}
+
+.holder {
+	height: 80px;
+}
+
+.most-width {
+	max-height: 130px;
+	max-width: 100%;
+	padding: 10px;
+	display: flex;
+	margin:auto;
+}
+
+.lead {
+	font-size: 1rem;
+    font-weight: 300;
+    font-family: 'Roboto Slab';
+    color: #0077c8;
+}

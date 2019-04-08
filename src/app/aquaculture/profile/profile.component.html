@@ -1,0 +1,100 @@
+<div class='container'>
+	<div class="secondary-nav">
+		<seafish-secondary-nav></seafish-secondary-nav>
+	</div>
+
+	<div class="row" *ngIf="profile">
+		<div class="col-md-3 pl-md-0 pr-md-0 d-none d-md-block">
+			<div class="left-outer">
+				<div class="grad-blue-box">
+					<div class='side-shape grad-blue left'>
+						<h1 style="font-weight: normal;">Aquaculture Profile:</h1>
+						<h1>{{profile.title}}</h1>
+						<h2><i>{{profile.latin}}</i></h2>
+						<h2>Back to the <a href="/aquaculture/tool" style="color:#fff;">Aquaculture Profiles tool<i class="icon-arrow"></i></a></h2>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="col-md-6">
+			<div class="profile-image">
+				<img [src]="apiBase + 'file/' + profile.featured_img" />
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class='sidebar' *ngIf="profile.documents && profile.documents.length">
+				<h2 class='sidebar-header'><img style='margin-right: 15px; margin-bottom: 10px; width: 25px;' src="assets/img/icon_download.svg" />Downloads</h2>			
+				<p *ngFor="let doc of profile.documents"><a [href]="apiBase + 'file/' + doc.id" target="_blank">{{doc.pretty_name}}</a></p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row page-block" *ngIf="profile">
+		<div class="col-md-3"></div>	
+		<div class="col-md-9" style="padding-right:100px">
+			<h1 [innerHTML]="profile.title"></h1>
+			<h2><i>{{profile.latin}}</i></h2>
+			{{profile.summary}} 
+			<br /><br />
+
+			<h1>Sources, Quantities and Cultivation Methods</h1>
+			<div class='outline-button' style='margin-bottom: 8px;' (click)="expand('sources')">
+				<h1>Sources, Quantities and Cultivation Methods</h1>
+				<p class="toggle" *ngIf="expandedSources" [innerHTML]="profile.sources"></p>
+			</div>	
+
+			<h1 style="padding-top:20px;">Governance and Outlook</h1>
+			<div class='outline-button' style='margin-bottom: 8px;' (click)="expand('governance')">
+				<h1>Governance and Outlook</h1>
+				<p class="toggle" *ngIf="expandedGovernance" [innerHTML]="profile.governance"></p>
+			</div>	
+
+			<h1 style="padding-top:20px;">Key Considerations</h1>
+			<div *ngFor="let risk of profile.risks">
+				<div class='outline-button' style='margin-bottom: 8px;' (click)="expand(risk)">
+					<h1>{{risk.type}}</h1>
+					<p class="toggle" *ngIf="expanded(risk)" [innerHTML]="risk.summary"></p>
+				</div>						
+			</div>			
+
+			<h1 style="padding-top:20px;">Certification</h1>
+			<div class='outline-button' style='margin-bottom: 8px;' (click)="expand('certification')">
+				<h1>Certification</h1>
+				<div class="toggle" *ngIf="expandedCertification">
+					<div [innerHTML]="profile.certification"></div>
+					<br />
+					<table class='table table-sm' class='data-table'>
+						<tr style='border: 1px solid red'>
+							<th>Certification Scheme: Description and Links</th>					
+							<th class="rotate"><div><span>Governance</span></div></th>
+							<th class="rotate"><div><span>Farm Siting</span></div></th>
+							<th class="rotate"><div><span>Nutrient Pollution</span></div></th>
+							<th class="rotate"><div><span>Feed</span></div></th>
+							<th class="rotate"><div><span>Disease, Medicines and Chemicals</span></div></th>
+							<th class="rotate"><div><span>Introductions / Genetics</span></div></th>
+							<th class="rotate"><div><span>Wild Seed</span></div></th>
+							<th class="rotate"><div><span>GSSI Benchmarked</span></div></th>
+						</tr>
+						<tr *ngFor="let scheme of profile.schemes">
+							<td style='text-align: center;' [innerHTML]="scheme.description"></td>
+							<td style='text-align: center;' [innerHTML]="(scheme.governance?'&#9679;':'&nbsp;')"></td>
+							<td style='text-align: center;' [innerHTML]="(scheme.farm_sitting?'&#9679;':'&nbsp;')"></td>
+							<td style='text-align: center;' [innerHTML]="(scheme.nutrient_pollution?'&#9679;':'&nbsp;')"></td>
+							<td style='text-align: center;' [innerHTML]="(scheme.feed?'&#9679;':'&nbsp;')"></td>
+							<td style='text-align: center;' [innerHTML]="(scheme.disease?'&#9679;':'&nbsp;')"></td>
+							<td style='text-align: center;' [innerHTML]="(scheme.introductions?'&#9679;':'&nbsp;')"></td>
+							<td style='text-align: center;' [innerHTML]="(scheme.wild_seed?'&#9679;':'&nbsp;')"></td>
+							<td style='text-align: center; color: green; font-size: 1.4em;' [innerHTML]="(scheme.gssi?'&#10003;':'&nbsp;')"></td>
+						</tr>
+					</table>					
+					<div [innerHTML]="profile.footnotes"></div>
+					<br />
+					<div [innerHTML]="profile.certification_add"></div>
+				</div>
+			</div>
+			<br />
+		</div>
+	</div>
+</div>	

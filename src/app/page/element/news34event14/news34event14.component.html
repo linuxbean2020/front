@@ -1,0 +1,72 @@
+<div class="row page-block">
+	<div class="col-sm-12 col-md-6 col-lg-4 pr-md-0 pr-lg-0 left-slice">
+		<div class="left-slice-box">
+		<div class='panel1 grad-blue left' *ngIf="categories && firstCol==1">
+			<div class="heading">
+					<span class='stand-out-bold'>Filter News</span><span class='stand-out'> by Category:</span>
+			</div>
+			<br />
+			<ul class='nostyle'>
+				<li *ngFor="let category of categories" class='link' (click)="filterCat(category)">
+					{{category.name}}
+				</li>
+			</ul>
+		</div>
+
+		<div class='panel1 grad-blue left' *ngIf="firstCol==2">
+			<h1>Latest News <span style="font-weight: lighter">and</span> Our Views</h1>
+			<br /><br />
+			<button class='btn btn-light'>See All</button>
+		</div>
+
+		</div>
+	</div>
+
+	<div class="col-sm-12 col-md-12 mx-md-auto order-md-4 order-lg-0 col-lg-4 px-md-0 px-lg-0" *ngIf='news.length>0'>
+		<div class='panel1 grad-blue mid'>
+			<div class="skwe-image-box">
+			<div class='main-image' [ngStyle]="{'background-image': 'url(' + apiBase + 'file/' + news[0].featured_img + ')'}"></div>
+			<div class="tag">
+				<div>
+					<strong>Latest</strong> News
+				</div>
+			</div>
+			</div>	
+			<h1><a [href]="'/article/' + news[0].slug">{{news[0].title}}</a></h1>
+			<div id='meta'>
+				<span id='date'>{{news[0].created_at.date | date:'MMMM d y'}}</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-12 col-md-3 col-lg-2 new-two-row px-md-0 px-lg-0" *ngIf='news.length>0'>
+		<div class='panel2 secondary-green'>
+			<div class="secondary-image-box">
+					<div class='secondary-image' [ngStyle]="{'background-image': 'url(' + apiBase + 'file/' + news[1].featured_img + ')'}"></div>
+			</div>
+			
+			<p class="tidy"><a [href]="'/article/' + news[1].slug">{{news[1].title}}</a></p>
+		</div>
+
+		<div class='panel3 secondary-orange'>
+			<div class="secondary-image-box">
+				<div class='secondary-image' [ngStyle]="{'background-image': 'url(' + apiBase + 'file/' + news[2].featured_img + ')'}"></div>
+			</div>
+			<p class="tidy"><a [href]="'/article/' + news[2].slug">{{news[2].title}}</a></p>
+		</div>		
+	</div>
+
+	<div class='col-sm-12 col-md-3 col-lg-2 event text-right' *ngIf="event">
+		<h1 class='event highlight'>Next Event</h1>
+		<h2>{{event.title}}</h2>
+		<div class='date'>{{event.event_start | date:'EEEE d MMMM'}}</div>
+		<div class='date' *ngIf="event.event_end"> to {{event.event_end | date:'EEEE d MMMM'}}</div>		
+		<a>More Information</a>
+		<a [routerLink]="['/news-events']" class='btn btn-sm btn-primary btn-flex pull-right'>
+			<span class="text-left">
+				<span> More </span> <strong>News</strong>
+			</span>			
+			<i class="icon-arrow pull-right"></i>
+		</a>
+	</div>	
+</div>

@@ -1,0 +1,135 @@
+	<div class='row'>
+	<div class='col-sm-12'>
+		<ul>
+			<img src="assets/img/left-arrow.svg" />
+			<li>
+			<a href="/rfs/">RFS Home</a>	
+			</li>
+			<li>
+			<a href="/rfs/full-search">RFS Full Search</a>	
+			</li>
+			<li>
+			<a href="/article/rfs-resources">RFS Resources</a>	
+			</li>
+			<li>
+			<a href="/article/rfs-contacts">RFS Contacts</a>	
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="wrapper">
+<div class='row'>
+	<div class='col-sm-12'>
+
+
+		<!--<ul *ngIf="pre_nav && pre_nav.length">
+
+			<li *ngFor="let item of pre_nav">
+				<a *ngIf="item.parent_page" [routerLink]="['/' + item.parent_page.slug]">{{item.parent_page.title}}</a>
+				<a *ngIf="item.parent_article" [routerLink]="['/article/' + item.parent_article.slug]">{{item.parent_article.title}}</a>
+			</li>
+		</ul>-->
+	</div>
+</div>
+<div class="row" style="margin-top:20px">
+	<div class="col-sm-12">
+		<h1>Search the Responsible Fishing Scheme records</h1>
+	</div>
+	<div class="col-sm-6">
+		<div class="grad-blue text-white col aleft">
+			Search by vessel, species, location or tag on the right.
+			<br /><br />
+			<a routerLink='/rfs/full-search' class='btn btn-warning btn-search'>View All Vessels</a>
+			<br />
+			<div class='alpha row'>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/a" class='btn btn-block btn-light'>A</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/b" class='btn btn-block btn-light'>B</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/c" class='btn btn-block btn-light'>C</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/d" class='btn btn-block btn-light'>D</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/e" class='btn btn-block btn-light'>E</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/f" class='btn btn-block btn-light'>F</button></div>
+			</div>
+			<div class='alpha row'>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/g" class='btn btn-block btn-light'>G</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/h" class='btn btn-block btn-light'>H</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/i" class='btn btn-block btn-light'>I</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/j" class='btn btn-block btn-light'>J</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/k" class='btn btn-block btn-light'>K</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/l" class='btn btn-block btn-light'>L</button></div>
+			</div>
+			<div class='alpha row'>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/m" class='btn btn-block btn-light'>M</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/n" class='btn btn-block btn-light'>N</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/o" class='btn btn-block btn-light'>O</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/p" class='btn btn-block btn-light'>P</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/q" class='btn btn-block btn-light'>Q</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/r" class='btn btn-block btn-light'>R</button></div>
+			</div>
+			<div class='alpha row'>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/s" class='btn btn-block btn-light'>S</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/t" class='btn btn-block btn-light'>T</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/u" class='btn btn-block btn-light'>U</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/v" class='btn btn-block btn-light'>V</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/w" class='btn btn-block btn-light'>W</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/x" class='btn btn-block btn-light'>X</button></div>
+			</div>
+			<div class='alpha row'>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/y" class='btn btn-block btn-light'>Y</button></div>
+				<div class='col-sm-2 p-2'><button routerLink="/rfs/full-search/z" class='btn btn-block btn-light'>Z</button></div>
+			</div>												
+		</div>
+	</div>
+	<div class="col-sm-6">
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Vessel Name" [(ngModel)]="search.name" />
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.location">
+						<option value="0">Location</option>
+						<optgroup *ngFor="let area of locations" [label]="area.area_name">
+							<option [value]="location.id" *ngFor="let location of area.items">{{location.location}}</option>
+						</optgroup>
+					</select>
+				</div>
+			</div>			
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Vessel Number" [(ngModel)]="search.number" />
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.species">
+						<option value="0">Species</option>
+						<option [value]="spec.id" *ngFor="let spec of species">{{spec.name}}</option>
+					</select>
+				</div>
+			</div>			
+		</div>	
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<a routerLink="/rfs/full-search" [queryParams]="{location: search.location, name: search.name, number: search.number, species: search.species}" class='btn btn-primary btn-search'>Search Now</a>
+				</div>
+				<div class="form-group">
+					<a (click)="reset()" class='btn btn-light btn-block'>Clear Search Criteria</a>
+				</div>
+				<img src="/assets/img/boats.jpg" />
+				<!--<div class="form-group">
+					<a class='btn btn-light btn-block'>Export Results as CSV</a>
+				</div>
+				<div class="form-group">
+					<a class='btn btn-light btn-block'>Export Results as PDF</a>
+				</div>								-->
+			</div>			
+		</div>				
+	</div>	
+</div>
+</div>

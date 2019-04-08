@@ -1,0 +1,28 @@
+<div class="grad-blue-box">
+	<div *ngIf="data" class='grad-blue' style='min-height: 500px;'>
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>{{data.header}}</h1>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="col">
+					<ul *ngIf="data.items.length">
+						<li (click)="select(item.menu_item)" [class.selected]="selected(item.menu_item)" *ngFor="let item of data.items">{{item.menu_item}}</li>	
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-sm-7 col-md-5 content">
+				<div *ngFor="let item of data.items" class='content-item'>
+					<div *ngIf="selected(item.menu_item)">
+						<p class='fancy-white'>{{item.item_text}}</p>
+						<element-button buttonClass="warning" *ngIf="item.linkButton && item.linkButton.displayText" [data]="item.linkButton"></element-button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

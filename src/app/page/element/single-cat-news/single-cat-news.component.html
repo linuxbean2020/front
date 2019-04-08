@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-sm-10">	
+		<div class="grad-blue-box">
+		<div class="grad-blue white-text col" *ngIf="news">
+			<div class='main-image cover' [ngStyle]="{'background-image': 'url(' + apiBase + '/file/' + news.featured_img + ')'}"></div>
+			<h1><a [href]="'/article/' + news.slug">{{news.title}}</a></h1>
+			<div id='meta'><span id='date'>{{news.created_at.date | date:'MMMM d y'}}</span></div>
+		</div>
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<a>Read More</a>
+		<button class="btn btn-primary readmore">
+				More <strong>News</strong>
+				<i class="icon-arrow"></i>
+			</button>
+	</div>
+</div>

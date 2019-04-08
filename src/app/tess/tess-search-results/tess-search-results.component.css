@@ -1,0 +1,55 @@
+.result {
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.card-header {
+	font-weight: bold;
+	font-family: 'roboto-slab';
+	font-size:22px;
+}	
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 5px;
+}
+
+.summary {
+	margin-bottom: 18px;
+}
+
+.btn.btn-warning {
+	float:right;
+	padding:1rem 1.5rem;
+	text-align: center;
+	vertical-align: middle;
+}
+
+strong {
+	font-family: 'roboto-slab';
+}
+
+.port:before {
+	font-family: 'FontAwesome';
+    content: "\f0ac";
+    color: #0077c8;
+    font-size: 1.5rem;
+    padding-right: 5px;
+    line-height: 6px;
+}
+
+.sector {
+	display: inline;
+	float:left;
+	background-color: #658d1b;
+	padding:0.5rem 1rem;
+	border-radius: 3px;
+	color:#fff;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	text-transform: lowercase;
+	font-size: 0.8rem;
+}

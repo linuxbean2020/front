@@ -1,0 +1,41 @@
+<div class="container">
+	<seafish-rass-search (triggerSearch)="doSearch($event)"></seafish-rass-search>
+
+	<div class="row page-block">
+		<div class="col-sm-12">
+			<h1 style="padding-left: 20px;">Search Results</h1>
+
+			<div style='padding: 6px; padding-left: 20px;'>
+				<i *ngIf="!results.length">No Search Results</i>
+			</div>
+
+			<!-- Results -->
+			<div *ngIf="results && results.length">
+				<h2 style="padding-left:20px">RASS Profiles</h2>
+				<div *ngIf="results">
+					<div class="card" *ngFor="let row of results">
+						<div class="card-header">
+							<strong>{{row.name}}</strong>
+						</div>						
+						<div class="row results-list">
+							<div class="col-md-3">
+								<img *ngIf="row.featured_img" [src]="apiBase + 'file/'+row.featured_img" class='full-width featured-img' />
+							</div>
+							<div class="col-md-6">
+								<div class="card-body" [innerHTML]="row.summary_description.substr(0,200) + '...'">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<a [routerLink]="['/rass/profile/'+row.slug]" class='btn btn-warning'>View</a>
+							</div>
+						</div>							
+					</div>
+				</div>
+			</div>					
+
+		</div>
+	</div>
+
+</div>
+<br />
+<seafish-publications-footer></seafish-publications-footer>

@@ -1,0 +1,119 @@
+.folder {
+	background: #666;
+	color: white;
+}
+
+.file-box {
+	border-top: 1px solid #999;
+	padding: 10px;
+	margin-top: 5px;
+	display: flex;
+	align-items: center;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: inline;
+	font-family: 'Roboto-LightItalic';
+	color:#fff;
+}
+
+.icon-download {
+	background-image : url('/assets/img/icon_download_white.svg');
+	background-size: cover;
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	margin-left: 0px !important;
+    margin-right: 5px !important;
+}
+
+.icon-folder {
+	background-image : url('/assets/img/icon_folder_grey.svg');
+	background-size: cover;
+	display: inline-block;
+	height: 15px;
+	width: 20px;
+	margin-left: 0px !important;
+    margin-right: 5px !important;
+}
+
+.icon-next {
+     background-image : url('/assets/img/icon-button-arrow.svg');
+     background-size: cover;
+     display: inline-block;
+     height: 12px;
+     width: 15px;
+     margin-right:5px;
+     margin-left:5px;
+ }
+
+ .icon-back {
+     background-image : url('/assets/img/icon-button-back-grey.svg');
+     background-size: cover;
+     display: inline-block;
+     height: 12px;
+     width: 17px;
+     margin-right:5px;
+     margin-left:5px;
+ }
+
+.btn-info {
+	color: #fff;
+    background-color: #54585a;
+	border-color: #54585a;
+    border-radius: 3px !important;
+    padding: 1rem 1.5rem !important;
+    margin-right: 20px;
+}
+
+.btn-warning {
+	color: #54585a;
+    background-color: #c4d600;
+	border-color: #c4d600;
+    border-radius: 3px !important;
+    padding: 1rem 1.5rem !important;
+    margin-right: 30px;
+    font-weight: bolder;
+}
+
+.grad-blue h2 {
+	font-family:'roboto-slab';
+	color:#fff;
+	font-size:20px;
+	font-weight: bolder;
+}
+
+@media(min-width:768px){
+	.grad-blue-box{
+		transform: skewX(-10deg) translateX(-95px);
+		-webkit-transform: skewX(-10deg) translateX(-95px);
+		overflow: hidden;
+		height: 600px;
+		border-right:10px solid #54585a;
+		
+	}
+	
+	.grad-blue-box >* {
+		transform: skewX(10deg) translateX(80px);
+		-webkit-transform: skewX(10deg) translateX(80px);
+		overflow: hidden;
+		height: 100%;
+	}
+}
+
+.vessel {
+	padding:20px 80px 20px 20px;
+}
+
+a {
+	font-family: 'Roboto-slab';
+    color: #0077c8 !important;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}

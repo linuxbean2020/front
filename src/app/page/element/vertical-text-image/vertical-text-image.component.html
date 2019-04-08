@@ -1,0 +1,20 @@
+	<div class="col-sm-12">
+		{{text}}
+	</div>
+	<div class="col-sm-12">
+		<img (click)="showImage()" class='full-width' [src]="apiBase + 'file/' + image" />
+	</div>	
+<div class="modal" tabindex="-1" role="dialog" id="image">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+    		</div>
+			<div class="modal-body">
+					<img [src]="apiBase + 'file/' + image" *ngIf="image" class='full-width' />
+			</div>
+		</div>
+	</div>
+</div>

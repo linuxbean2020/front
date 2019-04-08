@@ -1,0 +1,6 @@
+.clearfix{ 
+    clear: both;
+}
+.btn-warning, .btn-warning:hover {
+    padding: 1rem 2.5rem 1rem 1rem;
+}

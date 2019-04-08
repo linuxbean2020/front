@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="col-sm-4">
+		<div class="grad-blue-box">
+			<div class="grad-blue aleft">
+			<h1>Quick Search</h1>
+			<p>TESS has been filtered by <strong>region, seafood sector</strong> and <strong>type of resource</strong> to help tailor the results to individual requirements.</p>
+		</div>
+	</div>
+</div>
+	<div class="col-sm-8">
+
+		<div class="row">
+			<div class="col-sm-12" style="padding-right:50px">
+				<div class="form-group">
+					<input type="text" class="form-control" [(ngModel)]="search.keyword" placeholder="Enter Your Search Term..." />
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.country" name="search-country">
+						<option value="0">Location</option>
+						<option [value]="country.id" *ngFor="let country of countries">{{country.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.type">
+						<option value="0">Type of Resource</option>
+						<option [value]="type.id" *ngFor="let type of types">{{type.name}}</option>
+					</select>
+				</div>
+			</div>			
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.sector">
+						<option value="0">Seafood Sector</option>
+						<option [value]="sector.id" *ngFor="let sector of sectors">{{sector.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<a (click)="doSearch()" class='btn btn-primary btn-block rfs-btn'>Search Now</a>
+				</div>
+			</div>
+		</div>
+
+	</div>	
+</div>

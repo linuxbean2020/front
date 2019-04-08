@@ -1,0 +1,106 @@
+.page-block {
+    margin-left: -30px;
+    
+}
+
+
+.content {
+    min-height : 280px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:20px;  
+    padding-top:0px;
+    font-family: roboto-slab;
+}
+
+.comm {
+    
+    color: white;
+    
+
+}
+
+.update {
+    background: #555354;
+    text-align: right;
+    color: white;
+}
+
+h1 {
+    
+    font-family: roboto-slab;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.font-blue{
+    color: #0077c8;
+    font-family: roboto-slab;
+    font-weight: normal;
+}
+.font-gray{
+    color: #707372;
+    font-family: roboto;
+    font-weight: normal;
+    font-size: 16px;
+
+}
+.heading-details{
+    border-left: 10px solid #0092d5;
+    padding-left: 25px;
+}
+
+ul.faq-ul {
+     list-style-type: none;
+     margin-top: 25px;
+    margin-left: 35px;
+}
+li.faq-li{
+    margin-left: -40px;
+    color: #0092d5;
+    border: 1px solid red;
+    border: 1px solid #0092d5;
+    padding: 10px;
+    margin-top: 10px;
+    position: relative;
+    padding-right: 36px;
+    font-size: 16px;
+}
+li.faq-li a{
+   text-decoration: none;
+   color: #0092d5;
+   font-size: 16px;      
+   
+}
+li.faq-li a:after {
+    content: '+';
+    font-size: 25px;
+    float: right;
+    right: 7px;
+    position: absolute;
+}
+
+.accordion .card-header:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    float: right; 
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067"; 
+}
+
+@media only screen and (max-width:767px){
+    .rotate-main-div{
+        transform: skew(0deg) translate(0px);
+        -webkit-transform: skew(0deg) translate(0px);
+    }
+    .rotate-child-div{
+        transform: skew(0deg) translate(0px);
+       -webkit-transform: skew(0deg) translate(0px);
+    }
+    li.faq-li a:after {
+        
+        right: 6px;
+    }
+}

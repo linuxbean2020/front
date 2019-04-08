@@ -1,0 +1,17 @@
+<div class="row" style="padding-right:50px" *ngIf="data">
+    <div class="col-sm-12">
+        <h1 class='highlight'>{{data.header}}</h1>
+        <div class="left-side-border">
+            <p class='highlight'>{{data.lead}}</p>
+            <p [innerHTML]="data.body"></p>
+        </div>
+    </div>
+
+    <div class="col-sm-12 pl-25" *ngFor="let item of data.items">
+        <div class='outline-button' style='margin-bottom: 8px;' (click)="expand(item)">
+            <h1>{{item.title}}</h1>
+            <p class="toggle" *ngIf="expanded(item)" [innerHTML]="item.body"></p>
+        </div>
+    </div>
+
+</div>

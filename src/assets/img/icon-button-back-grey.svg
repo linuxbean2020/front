@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="14px" viewBox="0 0 19 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-button-back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-button-back" transform="translate(1.000000, 1.000000)">
+            <g id="icon-button-arrow" transform="translate(9.000000, 6.000000) scale(-1, 1) translate(-9.000000, -6.000000) ">
+                <g id="Right-Arrow" transform="translate(4.250000, 0.000000)" stroke="#54585A" stroke-width="2">
+                    <polyline id="Rectangle-2" stroke-linecap="round" points="6.375 0 12.75 6 6.375 12"></polyline>
+                    <path d="M11.6875,6 L0,6" id="Path-2"></path>
+                </g>
+                <rect id="Rectangle-6" fill="#54585A" fill-rule="nonzero" x="0" y="5" width="2.125" height="2" rx="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

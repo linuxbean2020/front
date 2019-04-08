@@ -1,0 +1,57 @@
+<div class="row page-block">
+	<div class="col-sm-4">
+		<div class="grad-blue-box">
+			<div class="grad-blue aleft">
+			<h1>Quick Search</h1>
+			<p>Search by vessel, species, location or tag on the right, or go to our <a href="/rfs/full-search"><strong>full search</strong></a></p>
+		</div>
+	</div>
+</div>
+	<div class="col-sm-8">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Vessel Name" [(ngModel)]="search.name" />
+				</div>
+			</div>
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.location">
+						<option value="0">Location</option>
+						<optgroup *ngFor="let area of locations" [label]="area.area_name">
+							<option [value]="location.id" *ngFor="let location of area.items">{{location.location}}</option>
+						</optgroup>
+					</select>
+				</div>
+			</div>			
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Vessel Number" [(ngModel)]="search.number" />
+				</div>
+			</div>
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<select class="form-control" [(ngModel)]="search.species">
+						<option value="0">Species</option>
+						<option [value]="spec.id" *ngFor="let spec of species">{{spec.name}}</option>
+					</select>
+				</div>
+			</div>			
+		</div>	
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					&nbsp;
+				</div>
+			</div>
+			<div class="col-sm-6 rfs-search">
+				<div class="form-group">
+					<a [routerLink]="['/rfs/full-search']" [queryParams]="{location: search.location}" class='btn btn-primary btn-block rfs-btn'>Search Now</a>
+				</div>
+			</div>			
+		</div>				
+	</div>	
+</div>

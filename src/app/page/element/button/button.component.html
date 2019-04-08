@@ -1,0 +1,7 @@
+<button *ngIf="data && data.linkType == 1" [routerLink]="['/articlebyid/' + data.linkID]"  [class]="'btn btn-' + buttonClass">{{data.displayText}}<i *ngIf="!hideArrow" style='margin-top: 7px;' class="icon-arrow  pull-right"></i></button>
+
+<a *ngIf="data && data.linkType == 2" [href]="apiBase + 'file/' + data.linkID" target="_blank" [class]="'btn btn-' + buttonClass">{{data.displayText}}<i *ngIf="!hideArrow" style='margin-top: 7px;' class="icon-arrow  pull-right"></i></a>
+
+<a *ngIf="data && data.linkType == 3" [href]="data.linkID" target="_blank" [class]="'btn btn-' + buttonClass">{{data.displayText}}<i *ngIf="!hideArrow" style='margin-top: 7px;' class="icon-arrow pull-right"></i></a>
+
+<a *ngIf="data && data.linkType == 4" [routerLink]="['/'+data.linkID]" [class]="'btn btn-' + buttonClass">{{data.displayText}}<i *ngIf="!hideArrow" style='margin-top: 7px;' class="icon-arrow pull-right"></i></a>

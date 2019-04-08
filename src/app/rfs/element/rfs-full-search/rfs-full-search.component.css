@@ -1,0 +1,63 @@
+.btn {
+	padding:0.5rem;
+}
+
+.btn-search {
+	padding:1rem;
+	border-radius: 3px;
+}
+
+img {
+	max-width: 100%;
+}
+.col {
+	padding:30px;
+}
+
+a:hover {
+	font-weight: bolder;
+}
+
+h2 {
+	color:#fff;
+}
+
+h1 {
+	padding-bottom: 20px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul img {
+	width: 12px;
+	float: left;
+	height:12px;
+}
+
+li {
+	display: block;
+	float: left;
+}
+
+a {
+	font-size: 14px;
+	line-height: 12px;
+	display: block;
+	padding: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+	border-right: 1px solid #0077c8;
+}
+
+.form-group {
+	margin-bottom: 1.2rem;
+}
+
+.wrapper {
+	padding:0 30px;
+}

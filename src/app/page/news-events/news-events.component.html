@@ -1,0 +1,46 @@
+<div class="container">
+	<div class='row'>
+	<div class='col-sm-12'>
+			<ul>
+				<img class="nav-arrow" src="assets/img/right-arrow.svg" />
+				<li>
+				<a href="/media-room/">Media Room</a>	
+				</li>
+				<li>
+				<a href="/publications/">Publications</a>	
+				</li>
+				<li>
+				<a href="/newsletter">Newsletters</a>	
+				</li>
+				<li>
+				<a href="/about/contact">Contact Us</a>	
+				</li>
+			</ul>
+		</div>
+	</div>
+	<seafish-news-header></seafish-news-header>
+	<seafish-thirds-banner2></seafish-thirds-banner2>
+	<seafish-latest-events></seafish-latest-events>
+	<seafish-banner50502></seafish-banner50502>
+	<div class="row page-block" style="padding-left: 15px;" *ngIf="external.length">
+		<div class="col-sm-3" *ngFor="let ext of external">
+			<h5><strong>{{ext.year}}</strong></h5>
+			<div class='month-box' *ngFor="let month of ext.months">
+				<h5 class='pointer' (click)="openMonth(ext.year+':'+month.name)">{{month.name}}<i class="fright fas fa-plus"></i>&nbsp;</h5>
+				<div *ngIf="isMonthOpen(ext.year+':'+month.name)">
+					<div class="event-box" *ngFor="let event of month.events">
+						<hr />
+						<div>{{event.title}}</div>
+						<div>{{event.event_start | date}} <span *ngIf="event.event_end">to {{event.event_end | date}}</span></div>
+						<div *ngIf="event.add">{{event.add}}</div>
+						<div *ngIf="event.city">{{event.city}}</div>
+						<div *ngIf="event.county">{{event.county}}</div>
+						<div *ngIf="event.postcode">{{event.postcode}}</div>
+						<div *ngIf="event.event_url"><a [href]="event.event_url" target="_blank">Visit website</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<seafish-temp-footer></seafish-temp-footer>
